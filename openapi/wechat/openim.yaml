@@ -1,0 +1,436 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · openim 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /openim/add_openim_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddOpenImContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                ticket:
+                  title: Ticket
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+              - ticket
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/check_openim_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                url:
+                  type: string
+                  description: 二维码名片里的链接
+              required:
+              - guid
+              - url
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/del_openim_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                username:
+                  type: string
+              required:
+              - guid
+              - username
+              x-apifox-orders:
+              - guid
+              - username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                ticket:
+                  title: Ticket
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+              - room_username
+              - ticket
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_friends:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImFriendsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_kefu_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_resource:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImResourceModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                wording_id:
+                  title: Wording Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - appid
+              - wording_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_room_detail:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImRoomDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_room_member_detail:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImChatRoomMemberDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                version:
+                  title: Version
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - version
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_room_members:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImRoomMembersModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - room_username
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/get_openim_rooms:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetOpenImRoomsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/modify_openim_disturb_flag:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                username:
+                  type: string
+                status:
+                  type: integer
+              required:
+              - guid
+              - username
+              - status
+              x-apifox-orders:
+              - guid
+              - username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/modify_openim_top_flag:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                username:
+                  type: string
+                status:
+                  type: integer
+                  description: 0-取消置顶, 1-置顶
+              required:
+              - guid
+              - username
+              - status
+              x-apifox-orders:
+              - guid
+              - username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/search_openim_contact:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SearchOpenImContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /openim/send_verify_request:
+    post:
+      summary: ''
+      x-module: OpenIM
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                username:
+                  type: string
+                ticket:
+                  type: string
+                verify_content:
+                  type: string
+              required:
+              - guid
+              - username
+              - ticket
+              - verify_content
+              x-apifox-orders:
+              - guid
+              - username
+              - ticket
+              - verify_content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,728 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · cloud 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /cloud/cdn_download:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_download_fav:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadFavModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_download_live_photo:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadLivePhotoModel
+              required:
+              - file_id
+              - aes_key
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                aes_key:
+                  title: Aes Key
+                  type: string
+                quality:
+                  title: Quality
+                  type: string
+                  default: normal
+                image_file_type:
+                  title: Image File Type
+                  type: integer
+                  default: 2
+                image_file_id:
+                  title: Image File Id
+                  type: string
+                  default: ''
+                image_aes_key:
+                  title: Image Aes Key
+                  type: string
+                  default: ''
+                video_file_id:
+                  title: Video File Id
+                  type: string
+                  default: ''
+                video_aes_key:
+                  title: Video Aes Key
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                protocol:
+                  title: Protocol
+                  enum:
+                  - auto
+                  - quic
+                  - tls
+                  - tcp
+                  type: string
+                  default: auto
+                require_quic:
+                  title: Require Quic
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - guid
+              - file_id
+              - aes_key
+              - quality
+              - image_file_type
+              - image_file_id
+              - image_aes_key
+              - video_file_id
+              - video_aes_key
+              - file_name
+              - protocol
+              - require_quic
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_download_sns:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadCdnSnsModel
+              required:
+              - url
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 20201
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                expected_md5:
+                  title: Expected Md5
+                  type: string
+                  default: ''
+                expected_sha256:
+                  title: Expected Sha256
+                  type: string
+                  default: ''
+                decode_key:
+                  title: Decode Key
+                  anyOf:
+                  - type: string
+                  - type: integer
+                protocol:
+                  title: Protocol
+                  enum:
+                  - auto
+                  - quic
+                  - tls
+                  - tcp
+                  type: string
+                  default: auto
+                require_quic:
+                  title: Require Quic
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - guid
+              - url
+              - file_type
+              - file_size
+              - file_name
+              - expected_md5
+              - expected_sha256
+              - decode_key
+              - protocol
+              - require_quic
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_download_wwfile:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadWWFileModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                auth_key:
+                  title: Auth Key
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                fast_download:
+                  title: Fast Download
+                  type: boolean
+                  default: false
+                aes_mode:
+                  title: Aes Mode
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - url
+              - auth_key
+              - aes_key
+              - file_name
+              - fast_download
+              - aes_mode
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload_big:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadBigModel
+              required:
+              - url
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 4
+                url:
+                  title: Url
+                  type: string
+              x-apifox-orders:
+              - guid
+              - file_type
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload_fav:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadFavModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                media_type:
+                  title: Media Type
+                  enum:
+                  - 10001
+                  - 10002
+                  type: integer
+                  default: 10001
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                video_protocol:
+                  title: Video Protocol
+                  enum:
+                  - c2cnova
+                  - legacy
+                  type: string
+                  default: c2cnova
+              description: Upload a Favorite file/image (10001) or video (10002) from a URL.
+              x-apifox-orders:
+              - guid
+              - media_type
+              - url
+              - file_name
+              - video_protocol
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload_live_photo:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadLivePhotoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 24
+                quality:
+                  title: Quality
+                  type: string
+                photo_url:
+                  title: Photo Url
+                  type: string
+                normal_video_url:
+                  title: Normal Video Url
+                  type: string
+                hd_video_url:
+                  title: Hd Video Url
+                  type: string
+                video_url:
+                  title: Video Url
+                  type: string
+                  default: ''
+                origin_image_url:
+                  title: Origin Image Url
+                  type: string
+                live_mid_video_url:
+                  title: Live Mid Video Url
+                  type: string
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                thumbnail_url:
+                  title: Thumbnail Url
+                  type: string
+                mid_image_url:
+                  title: Mid Image Url
+                  type: string
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                duration_ms:
+                  title: Duration Ms
+                  maximum: 4294967295.0
+                  exclusiveMinimum: 0.0
+                  type: integer
+                still_image_time_ms:
+                  title: Still Image Time Ms
+                  maximum: 4294967295.0
+                  minimum: 0.0
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - file_type
+              - quality
+              - photo_url
+              - normal_video_url
+              - hd_video_url
+              - video_url
+              - origin_image_url
+              - live_mid_video_url
+              - thumb_url
+              - thumbnail_url
+              - mid_image_url
+              - file_name
+              - duration_ms
+              - still_image_time_ms
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload_sns_image:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadSnsImageModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_upload_sns_video:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadSnsVideoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/download_voice:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadVoiceModel
+              required:
+              - msg_id
+              - length
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                msg_id:
+                  title: Msg Id
+                  type: string
+                length:
+                  title: Length
+                  type: integer
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                to_mp3:
+                  title: To Mp3
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - guid
+              - msg_id
+              - length
+              - room_username
+              - file_name
+              - to_mp3
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/download_wxemotion:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                url:
+                  type: string
+                aes_key:
+                  type: string
+                file_name:
+                  type: string
+              required:
+              - guid
+              - url
+              - aes_key
+              - file_name
+              x-apifox-orders:
+              - guid
+              - url
+              - aes_key
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/download_wximage:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                url:
+                  type: string
+                token:
+                  type: string
+                enc_idx:
+                  type: string
+                key:
+                  type: string
+                file_name:
+                  type: string
+              required:
+              - guid
+              - url
+              - token
+              - enc_idx
+              - key
+              - file_name
+              x-apifox-orders:
+              - guid
+              - url
+              - token
+              - enc_idx
+              - key
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/download_wxvideo:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadWxVideoModel
+              required:
+              - url
+              - decode_key
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                decode_key:
+                  title: Decode Key
+                  type: string
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+              - decode_key
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/update_cdn_dns:
+    post:
+      summary: ''
+      x-module: Cloud
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

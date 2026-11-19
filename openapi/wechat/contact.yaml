@@ -1,0 +1,462 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · contact 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /contact/add_friend:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddFriendModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                verify_content:
+                  title: Verify Content
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 3
+                ticket:
+                  title: Ticket
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+              - verify_content
+              - scene
+              - ticket
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_contact_brief_info:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetContactBriefInfoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - username_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_contact_from_db:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetContactInfoFromDbModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                fields:
+                  title: Fields
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username_list
+              - fields
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/del_friend:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DelFriendModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_contact:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username_list
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_contact_from_db:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetContactLocalModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_friends:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetFriendsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_publics:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetFriendsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/init_contact:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: InitContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                contact_seq:
+                  title: Contact Seq
+                  type: integer
+                  default: 0
+                room_seq:
+                  title: Room Seq
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - contact_seq
+              - room_seq
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/modify_contact_disturb_flag:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/modify_contact_top_flag:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/modify_remark:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRemarkModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                remark:
+                  title: Remark
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+              - remark
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/search_contact:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SearchContactModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                from_scene:
+                  title: From Scene
+                  type: integer
+                  default: 0
+                search_scene:
+                  title: Search Scene
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - username
+              - from_scene
+              - search_scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/search_contact_from_db:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SearchContactsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+                query:
+                  title: Query
+                  type: string
+                  default: ''
+                contact_type:
+                  title: Contact Type
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+              - query
+              - contact_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/verify_friend:
+    post:
+      summary: ''
+      x-module: Contact
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VerifyFriendModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                ticket:
+                  title: Ticket
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 6
+                opcode:
+                  title: Opcode
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - username
+              - ticket
+              - scene
+              - opcode
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

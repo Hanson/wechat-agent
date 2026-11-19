@@ -1,0 +1,268 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · cdn 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /cdn/download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/download_fav:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadFavModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/download_wwfile:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DownloadWWFileModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                auth_key:
+                  title: Auth Key
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+              - auth_key
+              - aes_key
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_cdn_info:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/update_cdn_dns:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateCdnDns
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/upload:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                file_path:
+                  title: File Path
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_path
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/upload_sns_image:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadSnsImageModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_path:
+                  title: File Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/upload_sns_video:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadSnsVideoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_path:
+                  title: File Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,299 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · sns 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /sns/sns_comment:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsCommentModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+                reply_comment_id:
+                  title: Reply Comment Id
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - object_id
+              - content
+              - reply_comment_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_delete:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsDeleteModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_delete_comment:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsDeleteCommentModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                comment_id:
+                  title: Comment Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+              - comment_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_like:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsLikeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - object_id
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_object_detail:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsObjectDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                source_type:
+                  title: Source Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - object_id
+              - source_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_post:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsPostModel
+              required:
+              - object_desc
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_desc:
+                  title: Object Desc
+                  type: string
+                with_user_list:
+                  title: With User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                block_user_list:
+                  title: Block User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                group_user_list:
+                  title: Group User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                group_contact_tag_id_list:
+                  title: Group Contact Tag Id List
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+                black_contact_tag_id_list:
+                  title: Black Contact Tag Id List
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+              x-apifox-orders:
+              - guid
+              - object_desc
+              - with_user_list
+              - block_user_list
+              - group_user_list
+              - group_contact_tag_id_list
+              - black_contact_tag_id_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_timeline:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsTimelineModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                max_id:
+                  title: Max Id
+                  type: string
+                  default: ''
+                first_page_md5:
+                  title: First Page Md5
+                  type: string
+                  default: ''
+                source_type:
+                  title: Source Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - max_id
+              - first_page_md5
+              - source_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_userpage:
+    post:
+      summary: ''
+      x-module: Sns
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsUserPageModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                max_id:
+                  title: Max Id
+                  type: string
+                  default: ''
+                first_page_md5:
+                  title: First Page Md5
+                  type: string
+                  default: ''
+                source_type:
+                  title: Source Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - username
+              - max_id
+              - first_page_md5
+              - source_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

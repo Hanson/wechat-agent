@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · cdn 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /cdn/big_download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_to_wwfile_id:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - guid
+                properties:
+                  guid:
+                    type: string
+                    description: 设备标识
+                x-apifox-orders:
+                - guid
+              - type: object
+                properties:
+                  file_id:
+                    type: string
+                    description: Big CDN 上传返回的文件 ID
+                  file_md5:
+                    type: string
+                    description: 32 位十六进制 MD5
+                  file_size:
+                    type: integer
+                    description: 上传文件的实际字节数
+                  file_key:
+                    type: string
+                    description: 获取授权和上传时使用的 file_key
+                x-apifox-orders:
+                - file_id
+                - file_md5
+                - file_size
+                - file_key
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_upload:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_cdn_info:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - guid
+                properties:
+                  guid:
+                    type: string
+                    description: 设备标识
+                x-apifox-orders:
+                - guid
+              - type: object
+                properties: {}
+                x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_wwfile_auth_key:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - guid
+                properties:
+                  guid:
+                    type: string
+                    description: 设备标识
+                x-apifox-orders:
+                - guid
+              - type: object
+                properties:
+                  file_key:
+                    type: string
+                    description: 本次 Big CDN 上传使用的 file_key（可由调用方生成 UUID，授权/上传/转换全程保持一致）
+                  file_type:
+                    type: integer
+                    description: 文件类型，普通文件 Big CDN 上传为 35
+                x-apifox-orders:
+                - file_key
+                - file_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_wwfile_download_info:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - guid
+                properties:
+                  guid:
+                    type: string
+                    description: 设备标识
+                x-apifox-orders:
+                - guid
+              - type: object
+                properties:
+                  file_id:
+                    type: string
+                    description: 企业文件 ID
+                x-apifox-orders:
+                - file_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

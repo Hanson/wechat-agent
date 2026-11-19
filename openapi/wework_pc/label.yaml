@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · label 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /label/contact_add_label:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchInsertContactLabelModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                label_id:
+                  title: Label Id
+                  type: string
+                  default: ''
+                corp_or_vid:
+                  title: Corp Or Vid
+                  type: string
+                  default: ''
+                label_groupid:
+                  title: Label Groupid
+                  type: string
+                  default: ''
+                business_type:
+                  title: Business Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - user_list
+              - label_id
+              - corp_or_vid
+              - label_groupid
+              - business_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/contact_add_labels:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: InsertContactLabelsModel
+              required:
+              - guid
+              - label_infos
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: ''
+                label_infos:
+                  title: Label Infos
+                  type: array
+                  items:
+                    title: LabelInfoModel
+                    type: object
+                    properties:
+                      label_id:
+                        title: Label Id
+                        type: string
+                        default: ''
+                      corp_or_vid:
+                        title: Corp Or Vid
+                        type: string
+                        default: ''
+                      label_groupid:
+                        title: Label Groupid
+                        type: string
+                        default: ''
+                      business_type:
+                        title: Business Type
+                        type: integer
+                        default: 0
+                    x-apifox-orders:
+                    - label_id
+                    - corp_or_vid
+                    - label_groupid
+                    - business_type
+              x-apifox-orders:
+              - guid
+              - user_id
+              - label_infos
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/create_label:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateLabelModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                name:
+                  title: Name
+                  type: string
+                  default: ''
+                label_groupid:
+                  title: Label Groupid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - name
+              - label_groupid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/delete_label:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DeleteLabelModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                label_id:
+                  title: Label Id
+                  type: string
+                  default: ''
+                label_groupid:
+                  title: Label Groupid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - label_id
+              - label_groupid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/modify_label:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyLabelModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                label_id:
+                  title: Label Id
+                  type: string
+                  default: ''
+                name:
+                  title: Name
+                  type: string
+                  default: ''
+                label_groupid:
+                  title: Label Groupid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - label_id
+              - name
+              - label_groupid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/sync_label_list:
+    post:
+      summary: ''
+      x-module: 标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncLabelListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                seq:
+                  title: Seq
+                  type: string
+                  default: ''
+                sync_type:
+                  title: Sync Type
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - seq
+              - sync_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · user 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /user/get_profile:
+    post:
+      summary: ''
+      x-module: User
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetProfileModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /user/get_qrcode:
+    post:
+      summary: ''
+      x-module: User
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetQRCodeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                style:
+                  title: Style
+                  type: integer
+                  default: 0
+                opcode:
+                  title: Opcode
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - style
+              - opcode
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /user/logout:
+    post:
+      summary: ''
+      x-module: User
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetProfileModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

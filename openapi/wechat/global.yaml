@@ -1,0 +1,27 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · global 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /global/set_notify_url:
+    post:
+      summary: ''
+      x-module: Global
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: NotifyUrlModel
+              required:
+              - notify_url
+              type: object
+              properties:
+                notify_url:
+                  title: Notify Url
+                  type: string
+              x-apifox-orders:
+              - notify_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

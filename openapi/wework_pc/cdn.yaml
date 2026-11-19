@@ -1,0 +1,353 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · cdn 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /cdn/big_download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BigDownloadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_id
+              - file_size
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/big_upload:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BigUploadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_path:
+                  title: File Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: C2CDownloadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 2
+                  description: 原图=>1, 中图=>2, 缩略图=>3, 视频=>4, 文件&GIF=>5
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+                file_name:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_to_wwfile_id:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: C2CToWWFileModel
+              required:
+              - guid
+              - file_id
+              - file_md5
+              - file_size
+              - file_key
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                file_id:
+                  title: File Id
+                  type: string
+                file_md5:
+                  title: File Md5
+                  type: string
+                file_size:
+                  title: File Size
+                  type: integer
+                file_key:
+                  title: File Key
+                  type: string
+              x-apifox-orders:
+              - guid
+              - file_id
+              - file_md5
+              - file_size
+              - file_key
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/c2c_upload:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: C2CUploadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 0
+                file_path:
+                  title: File Path
+                  type: string
+                  default: ''
+                url:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_cdn_info:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+              x-apifox-orders:
+              - guid
+              required:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_wwfile_auth_key:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                file_key:
+                  type: string
+                file_type:
+                  type: integer
+              required:
+              - guid
+              - file_key
+              - file_type
+              x-apifox-orders:
+              - guid
+              - file_key
+              - file_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_wwfile_download_info:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetWWFileDownloadInfoModel
+              required:
+              - guid
+              - file_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                file_id:
+                  title: File Id
+                  type: string
+              x-apifox-orders:
+              - guid
+              - file_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/new_file_key:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/update_cdn_rule:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateCdnRuleModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/wx_download:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: WxDownloadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                auth_key:
+                  title: Auth Key
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                save_path:
+                  title: Save Path
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+              - auth_key
+              - aes_key
+              - save_path
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

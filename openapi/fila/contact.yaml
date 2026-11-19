@@ -1,0 +1,212 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · contact 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /contact/add_card_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_deleted_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_search_wx_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_search_wx_work_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_wx_card_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/agree_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_delete_one_way_friends:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_corpinfo:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_userinfo:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/check_card_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/delete_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_apply_list:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_cached_contact_list:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_contact_by_qrcode:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_contact_list:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_one_way_friends:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_user_info_with_check:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/is_both_way_friend:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/opr_contact_black_list:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/search_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/sync_apply_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/sync_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/update_contact:
+    post:
+      summary: ''
+      x-module: 客户
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

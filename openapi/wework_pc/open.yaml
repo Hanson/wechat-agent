@@ -1,0 +1,329 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · open 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /open/chatid_to_roomid:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ChatIdToRoomIdModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                chatid:
+                  title: Chatid
+                  type: string
+                  default: ''
+                corp_app_id:
+                  title: Corp App Id
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - chatid
+              - corp_app_id
+              - corp_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_appinfo:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_attachment_apps:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetAttachmentItemModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                attachment_type:
+                  title: Attachment Type
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - attachment_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_banner_list:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetBannerListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                version:
+                  title: Version
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - version
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_person_banner_list:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetPersonBannerListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                corp_banner_version:
+                  title: Corp Banner Version
+                  type: integer
+                  default: 0
+                personal_banner_version:
+                  title: Personal Banner Version
+                  type: integer
+                  default: 0
+                order_version:
+                  title: Order Version
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - corp_banner_version
+              - personal_banner_version
+              - order_version
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/openid_to_vid:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpenIdToVidModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                openid_list:
+                  title: Openid List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+                real_appid:
+                  title: Real Appid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - openid_list
+              - appid
+              - corp_id
+              - real_appid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/roomid_to_chatid:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RoomIdToChatIdModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                corp_app_id:
+                  title: Corp App Id
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - corp_app_id
+              - corp_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/vid_to_external_userid:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VidToExternalUserIdModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+                real_appid:
+                  title: Real Appid
+                  type: string
+                  default: ''
+                relation_type:
+                  title: Relation Type
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - user_list
+              - appid
+              - corp_id
+              - real_appid
+              - relation_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/vid_to_openid:
+    post:
+      summary: ''
+      x-module: 开放平台打通
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VidToOpenIdModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+                real_appid:
+                  title: Real Appid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_list
+              - appid
+              - corp_id
+              - real_appid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

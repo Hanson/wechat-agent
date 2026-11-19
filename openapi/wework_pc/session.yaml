@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · session 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /session/get_session_config:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+              required:
+              - guid
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_session_list:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSessionListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                begin_seq:
+                  title: Begin Seq
+                  type: string
+                  default: '0'
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 100
+              x-apifox-orders:
+              - guid
+              - begin_seq
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_session_cmd:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetSessionModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                cmd:
+                  title: Cmd
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - cmd
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

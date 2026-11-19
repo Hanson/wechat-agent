@@ -1,0 +1,397 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · client 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /client/all_clients:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+              x-apifox-refs: {}
+              x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/all_infos:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+              x-apifox-refs: {}
+              x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/create_client:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateClientModel
+              type: object
+              properties:
+                client_type:
+                  title: Client Type
+                  type: integer
+                  default: 241
+                proxy:
+                  title: Proxy
+                  type: string
+                  default: ''
+                is_long_proxy:
+                  title: Is Long Proxy
+                  type: boolean
+                  default: false
+                bridge:
+                  title: Bridge
+                  type: string
+                  default: ''
+                payload:
+                  title: Payload
+                  type: string
+                  default: ''
+                auto_start:
+                  title: Auto Start
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - client_type
+              - proxy
+              - is_long_proxy
+              - bridge
+              - payload
+              - auto_start
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/get_bridge:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/get_client_status:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetClientStatusModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/get_client_version:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetClientVersionModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/get_clients:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+              x-apifox-refs: {}
+              x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/get_proxy:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/online_status:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/remove_client:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: StopClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/restore_client:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RestoreClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                proxy:
+                  title: Proxy
+                  type: string
+                  default: ''
+                is_login_proxy:
+                  title: Is Login Proxy
+                  type: boolean
+                  default: false
+                bridge:
+                  title: Bridge
+                  type: string
+                  default: ''
+                sync_history_msg:
+                  title: Sync History Msg
+                  type: boolean
+                  default: true
+                auto_start:
+                  title: Auto Start
+                  type: boolean
+                  default: true
+              x-apifox-orders:
+              - guid
+              - proxy
+              - is_login_proxy
+              - bridge
+              - sync_history_msg
+              - auto_start
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/set_bridge:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientBridgeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                bridge:
+                  title: Bridge
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - bridge
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/set_notify_url:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: NotifyUrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                notify_url:
+                  title: Notify Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - notify_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/set_proxy:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientProxyModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                proxy:
+                  title: Proxy
+                  type: string
+                  default: ''
+                is_long_proxy:
+                  title: Is Long Proxy
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - guid
+              - proxy
+              - is_long_proxy
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/stop_client:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: StopClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/update_client:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateClientModel
+              required:
+              - new_client_type
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                new_client_type:
+                  title: New Client Type
+                  type: integer
+              x-apifox-orders:
+              - guid
+              - new_client_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /client/update_info:
+    post:
+      summary: ''
+      x-module: 客户端
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+              x-apifox-refs: {}
+              x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

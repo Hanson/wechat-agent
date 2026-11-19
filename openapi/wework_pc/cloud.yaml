@@ -1,0 +1,264 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · cloud 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /cloud/add_image:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddImageModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_big_download:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BigDownloadModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - file_id
+              - file_size
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_big_upload:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BigUploadModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_c2c_download:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                file_type:
+                  type: integer
+                file_id:
+                  type: string
+                aes_key:
+                  type: string
+                file_size:
+                  type: integer
+                file_name:
+                  type: string
+                to_mp3:
+                  type: boolean
+              required:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - file_name
+              - to_mp3
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_id
+              - aes_key
+              - file_size
+              - file_name
+              - to_mp3
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_c2c_upload:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: C2CUploadModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                file_type:
+                  title: File Type
+                  type: integer
+                  default: 0
+                file_url:
+                  title: File Url
+                  type: string
+                  default: ''
+                  description: 文件下载 URL（设备端下载后上传 CDN）
+              x-apifox-orders:
+              - guid
+              - file_type
+              - file_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/cdn_wx_download:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: WxDownloadModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                auth_key:
+                  title: Auth Key
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+              - auth_key
+              - aes_key
+              - file_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/update_cdn_rule:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateCdnRuleModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /cloud/upload_video_preview:
+    post:
+      summary: ''
+      x-module: 云存储
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddImageModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,2107 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · msg 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /msg/apply_voice_id:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ApplyVoiceToTextModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                msgid:
+                  title: Msgid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - msgid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/check_can_send_group_msg:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                vid_list:
+                  type: array
+                  items:
+                    type: string
+                is_room:
+                  type: boolean
+              required:
+              - guid
+              - vid_list
+              - is_room
+              x-apifox-orders:
+              - guid
+              - vid_list
+              - is_room
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/confirm_group_msg:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                msgid:
+                  type: string
+                conversation_type:
+                  type: integer
+                customer_list:
+                  type: array
+                  items:
+                    type: string
+              required:
+              - guid
+              - msgid
+              - conversation_type
+              - customer_list
+              x-apifox-orders:
+              - guid
+              - msgid
+              - conversation_type
+              - customer_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/confirm_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ConfirmMsgModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                message_type:
+                  title: Message Type
+                  type: integer
+                  default: 0
+                sender:
+                  title: Sender
+                  type: string
+                  default: ''
+                receiver:
+                  title: Receiver
+                  type: string
+                  default: ''
+                roomid:
+                  title: Roomid
+                  type: string
+                  default: ''
+                msgid:
+                  title: Msgid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - message_type
+              - sender
+              - receiver
+              - roomid
+              - msgid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/get_group_msg_detail:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetGroupMsgDetailModel
+              required:
+              - guid
+              - msgid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                msgid:
+                  title: Msgid
+                  type: string
+                send_type:
+                  title: Send Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - msgid
+              - send_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_group_msg_confirm_list:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                next_page:
+                  type: string
+              required:
+              - guid
+              - next_page
+              x-apifox-orders:
+              - guid
+              - next_page
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_group_msg_room_list:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: QueryGroupMsgRoomListModel
+              required:
+              - guid
+              - msgid
+              - keywords
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                msgid:
+                  title: Msgid
+                  type: string
+                keywords:
+                  title: Keywords
+                  type: array
+                  items:
+                    type: string
+              x-apifox-orders:
+              - guid
+              - msgid
+              - keywords
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_voice_text:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: QueryVoiceToTextModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                msgid:
+                  title: Msgid
+                  type: string
+                  default: ''
+                voiceid:
+                  title: Voiceid
+                  type: string
+                  default: ''
+                seqid:
+                  title: Seqid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - msgid
+              - voiceid
+              - seqid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/report_unread:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ReportUnReadModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/revoke_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RevokeMsgModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                msgid:
+                  title: Msgid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - msgid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_big_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                conversation_id:
+                  type: string
+                file_id:
+                  type: string
+                size:
+                  type: integer
+                file_name:
+                  type: string
+                md5:
+                  type: string
+                video_duration:
+                  type: integer
+                preview_image_url:
+                  type: string
+                preview_image_width:
+                  type: integer
+                preview_image_height:
+                  type: integer
+                preview_image_size:
+                  type: integer
+                preview_image_md5:
+                  type: string
+              required:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - file_name
+              - md5
+              - video_duration
+              - preview_image_url
+              - preview_image_width
+              - preview_image_height
+              - preview_image_size
+              - preview_image_md5
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - file_name
+              - md5
+              - video_duration
+              - preview_image_url
+              - preview_image_width
+              - preview_image_height
+              - preview_image_size
+              - preview_image_md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_feed_live:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFeedLiveModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                feed_type:
+                  title: Feed Type
+                  type: integer
+                  default: 0
+                cover_url:
+                  title: Cover Url
+                  type: string
+                  default: ''
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                  default: ''
+                avatar:
+                  title: Avatar
+                  type: string
+                  default: ''
+                nickname:
+                  title: Nickname
+                  type: string
+                  default: ''
+                desc:
+                  title: Desc
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                extras:
+                  title: Extras
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - feed_type
+              - cover_url
+              - thumb_url
+              - avatar
+              - nickname
+              - desc
+              - url
+              - extras
+              - object_id
+              - object_nonce_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_feed_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFeedVideoModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                feed_type:
+                  title: Feed Type
+                  type: integer
+                  default: 0
+                cover_url:
+                  title: Cover Url
+                  type: string
+                  default: ''
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                  default: ''
+                avatar:
+                  title: Avatar
+                  type: string
+                  default: ''
+                nickname:
+                  title: Nickname
+                  type: string
+                  default: ''
+                desc:
+                  title: Desc
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                extras:
+                  title: Extras
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - feed_type
+              - cover_url
+              - thumb_url
+              - avatar
+              - nickname
+              - desc
+              - url
+              - extras
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_feed_video_h5:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFeedVideoH5Model
+              required:
+              - guid
+              - conversation_id
+              - link_url
+              - image_url
+              - title
+              - description
+              - feed_type
+              - cover_url
+              - thumb_url
+              - avatar
+              - nickname
+              - desc
+              - url
+              - extras
+              - object_id
+              - object_nonce_id
+              - auth_icon_url
+              - height
+              - width
+              - image_count
+              - export_new_url
+              - live_status
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                link_url:
+                  title: Link Url
+                  type: string
+                image_url:
+                  title: Image Url
+                  type: string
+                title:
+                  title: Title
+                  type: string
+                description:
+                  title: Description
+                  type: string
+                feed_type:
+                  title: Feed Type
+                  type: integer
+                cover_url:
+                  title: Cover Url
+                  type: string
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                avatar:
+                  title: Avatar
+                  type: string
+                nickname:
+                  title: Nickname
+                  type: string
+                desc:
+                  title: Desc
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                extras:
+                  title: Extras
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                auth_icon_url:
+                  title: Auth Icon Url
+                  type: string
+                height:
+                  title: Height
+                  type: integer
+                width:
+                  title: Width
+                  type: integer
+                image_count:
+                  title: Image Count
+                  type: integer
+                export_new_url:
+                  title: Export New Url
+                  type: string
+                live_status:
+                  title: Live Status
+                  type: integer
+                use_h5:
+                  title: Use H5
+                  type: boolean
+                  default: true
+                is_horizontal:
+                  title: Is Horizontal
+                  type: boolean
+                  default: false
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - link_url
+              - image_url
+              - title
+              - description
+              - feed_type
+              - cover_url
+              - thumb_url
+              - avatar
+              - nickname
+              - desc
+              - url
+              - extras
+              - object_id
+              - object_nonce_id
+              - auth_icon_url
+              - height
+              - width
+              - image_count
+              - export_new_url
+              - live_status
+              - use_h5
+              - is_horizontal
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_file:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFileModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - file_name
+              - aes_key
+              - md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_finder_product:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                conversation_id:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    finder_live_id:
+                      type: string
+                    finder_username:
+                      type: string
+                    finder_object_id:
+                      type: string
+                    finder_nonce_id:
+                      type: string
+                    product_appid:
+                      type: string
+                    product_page_path:
+                      type: string
+                    product_id:
+                      type: string
+                    product_cover_url:
+                      type: string
+                    product_title:
+                      type: string
+                    product_desc:
+                      type: string
+                    product_price:
+                      type: string
+                    platform_headimg:
+                      type: string
+                    platform_nickname:
+                      type: string
+                    shop_info:
+                      type: object
+                      properties:
+                        shop_id:
+                          type: string
+                        url:
+                          type: string
+                        extra_info:
+                          type: string
+                      required:
+                      - shop_id
+                      - url
+                      - extra_info
+                      x-apifox-orders:
+                      - shop_id
+                      - url
+                      - extra_info
+                  required:
+                  - finder_live_id
+                  - finder_username
+                  - finder_object_id
+                  - finder_nonce_id
+                  - product_appid
+                  - product_page_path
+                  - product_id
+                  - product_cover_url
+                  - product_title
+                  - product_desc
+                  - product_price
+                  - platform_headimg
+                  - platform_nickname
+                  - shop_info
+                  x-apifox-orders:
+                  - finder_live_id
+                  - finder_username
+                  - finder_object_id
+                  - finder_nonce_id
+                  - product_appid
+                  - product_page_path
+                  - product_id
+                  - product_cover_url
+                  - product_title
+                  - product_desc
+                  - product_price
+                  - platform_headimg
+                  - platform_nickname
+                  - shop_info
+              required:
+              - guid
+              - conversation_id
+              - content
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_forward_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                conversation_id:
+                  type: string
+                message_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      msg_type:
+                        type: integer
+                      content:
+                        type: string
+                      sender_user_id:
+                        type: string
+                      sendtime:
+                        type: integer
+                      sender_name:
+                        type: string
+                      longitude:
+                        type: number
+                      latitude:
+                        type: number
+                      address:
+                        type: string
+                      title:
+                        type: string
+                      zoom:
+                        type: integer
+                      desc:
+                        type: string
+                      url:
+                        type: string
+                      image_url:
+                        type: string
+                      file_id:
+                        type: string
+                      size:
+                        type: integer
+                      aes_key:
+                        type: string
+                      md5:
+                        type: string
+                      image_width:
+                        type: integer
+                      image_height:
+                        type: integer
+                      file_name:
+                        type: string
+                      video_duration:
+                        type: integer
+                      video_width:
+                        type: integer
+                      video_height:
+                        type: integer
+                      message_list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            msg_type:
+                              type: integer
+                            sendtime:
+                              type: integer
+                            content:
+                              type: string
+                            sender_user_id:
+                              type: string
+                            sender_name:
+                              type: string
+                          x-apifox-orders:
+                          - msg_type
+                          - sendtime
+                          - content
+                          - sender_user_id
+                          - sender_name
+                    required:
+                    - msg_type
+                    - sendtime
+                    - sender_user_id
+                    - sender_name
+                    - title
+                    - file_id
+                    - size
+                    - aes_key
+                    - md5
+                    - file_name
+                    x-apifox-orders:
+                    - msg_type
+                    - content
+                    - sender_user_id
+                    - sendtime
+                    - sender_name
+                    - longitude
+                    - latitude
+                    - address
+                    - title
+                    - zoom
+                    - desc
+                    - url
+                    - image_url
+                    - file_id
+                    - size
+                    - aes_key
+                    - md5
+                    - image_width
+                    - image_height
+                    - file_name
+                    - video_duration
+                    - video_width
+                    - video_height
+                    - message_list
+              required:
+              - guid
+              - conversation_id
+              - message_list
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - message_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_gif:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendGifModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                image_width:
+                  title: Image Width
+                  type: integer
+                  default: 0
+                image_height:
+                  title: Image Height
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - aes_key
+              - md5
+              - url
+              - image_width
+              - image_height
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_gif_url:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendGifUrlModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                image_width:
+                  title: Image Width
+                  type: integer
+                  default: 0
+                image_height:
+                  title: Image Height
+                  type: integer
+                  default: 0
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - url
+              - md5
+              - image_width
+              - image_height
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_group_msg:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                user_list:
+                  type: array
+                  items:
+                    type: string
+                room_list:
+                  type: array
+                  items:
+                    type: string
+                content:
+                  type: string
+                image_msg_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      image_url:
+                        type: string
+                      size:
+                        type: integer
+                      thumb_width:
+                        type: integer
+                      thumb_height:
+                        type: integer
+                    x-apifox-orders:
+                    - image_url
+                    - size
+                    - thumb_width
+                    - thumb_height
+                video_msg_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file_id:
+                        type: string
+                      size:
+                        type: integer
+                      file_name:
+                        type: string
+                      aes_key:
+                        type: string
+                      md5:
+                        type: string
+                      video_duration:
+                        type: integer
+                      video_width:
+                        type: integer
+                      video_height:
+                        type: integer
+                    x-apifox-orders:
+                    - file_id
+                    - size
+                    - file_name
+                    - aes_key
+                    - md5
+                    - video_duration
+                    - video_width
+                    - video_height
+                weapp_msg_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      username:
+                        type: string
+                      appid:
+                        type: string
+                      appname:
+                        type: string
+                      appicon:
+                        type: string
+                      title:
+                        type: string
+                      page_path:
+                        type: string
+                      file_id:
+                        type: string
+                      size:
+                        type: integer
+                      aes_key:
+                        type: string
+                      md5:
+                        type: string
+                    x-apifox-orders:
+                    - username
+                    - appid
+                    - appname
+                    - appicon
+                    - title
+                    - page_path
+                    - file_id
+                    - size
+                    - aes_key
+                    - md5
+                link_msg_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      description:
+                        type: string
+                      url:
+                        type: string
+                      image_url:
+                        type: string
+                    x-apifox-orders:
+                    - title
+                    - description
+                    - url
+                    - image_url
+                file_msg_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file_id:
+                        type: string
+                      size:
+                        type: integer
+                      file_name:
+                        type: string
+                      aes_key:
+                        type: string
+                      md5:
+                        type: string
+                    x-apifox-orders:
+                    - file_id
+                    - size
+                    - file_name
+                    - aes_key
+                    - md5
+              required:
+              - guid
+              - user_list
+              - room_list
+              - content
+              - image_msg_list
+              - video_msg_list
+              - weapp_msg_list
+              - link_msg_list
+              - file_msg_list
+              x-apifox-orders:
+              - guid
+              - user_list
+              - room_list
+              - content
+              - image_msg_list
+              - video_msg_list
+              - weapp_msg_list
+              - link_msg_list
+              - file_msg_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_image:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendImageModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                image_width:
+                  title: Image Width
+                  type: integer
+                  default: 0
+                image_height:
+                  title: Image Height
+                  type: integer
+                  default: 0
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                is_hd:
+                  title: Is Hd
+                  type: boolean
+                  default: false
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - image_width
+              - image_height
+              - aes_key
+              - md5
+              - is_hd
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_link:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendLinkModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                description:
+                  title: Description
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                image_url:
+                  title: Image Url
+                  type: string
+                  default: ''
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - title
+              - description
+              - url
+              - image_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_location:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendLocationModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                longitude:
+                  title: Longitude
+                  type: number
+                  default: 0
+                latitude:
+                  title: Latitude
+                  type: number
+                  default: 0
+                address:
+                  title: Address
+                  type: string
+                  default: ''
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                zoom:
+                  title: Zoom
+                  type: number
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - longitude
+              - latitude
+              - address
+              - title
+              - zoom
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_personal_card:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendPersonalCardModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                user_id:
+                  title: User Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - user_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_quote_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                conversation_id:
+                  type: string
+                quote:
+                  type: string
+                content:
+                  type: string
+                appinfo:
+                  type: string
+                content_type:
+                  type: integer
+                sender:
+                  type: string
+                sender_name:
+                  type: string
+                message:
+                  type: object
+                  properties:
+                    msg_type:
+                      type: integer
+                    content:
+                      type: string
+                  required:
+                  - msg_type
+                  - content
+                  x-apifox-orders:
+                  - msg_type
+                  - content
+                at_list:
+                  type: array
+                  items:
+                    type: string
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              required:
+              - guid
+              - conversation_id
+              - quote
+              - content
+              - appinfo
+              - content_type
+              - sender
+              - sender_name
+              - message
+              - at_list
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - quote
+              - content
+              - appinfo
+              - content_type
+              - sender
+              - sender_name
+              - message
+              - at_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_room_at:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendRoomAtModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+                at_list:
+                  title: At List
+                  type: array
+                  items:
+                    anyOf:
+                    - type: string
+                    - type: integer
+                  default: []
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - content
+              - at_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_text:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendTextModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendVideoModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                video_duration:
+                  title: Video Duration
+                  type: integer
+                  default: 0
+                video_width:
+                  title: Video Width
+                  type: integer
+                  default: 0
+                video_height:
+                  title: Video Height
+                  type: integer
+                  default: 0
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - file_name
+              - aes_key
+              - md5
+              - video_duration
+              - video_width
+              - video_height
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_voice:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendVoiceModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                voice_time:
+                  title: Voice Time
+                  type: integer
+                  default: 0
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - file_id
+              - size
+              - voice_time
+              - aes_key
+              - md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_weapp:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendWeAppModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                appname:
+                  title: Appname
+                  type: string
+                  default: ''
+                appicon:
+                  title: Appicon
+                  type: string
+                  default: ''
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                page_path:
+                  title: Page Path
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                size:
+                  title: Size
+                  type: integer
+                  default: 0
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - username
+              - appid
+              - appname
+              - appicon
+              - title
+              - page_path
+              - file_id
+              - size
+              - aes_key
+              - md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/sync_group_msg_send_status:
+    post:
+      summary: ''
+      x-module: 消息/群发助手
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                msgid:
+                  type: string
+                seq:
+                  type: integer
+                send_type:
+                  type: integer
+              required:
+              - guid
+              - msgid
+              - seq
+              - send_type
+              x-apifox-orders:
+              - guid
+              - msgid
+              - seq
+              - send_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

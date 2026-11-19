@@ -1,0 +1,618 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · contact 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /contact/add_card_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddCardContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: '0'
+                from_user_id:
+                  title: From User Id
+                  type: string
+                  default: '0'
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+              - room_id
+              - from_user_id
+              - verify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_deleted_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddDeletedContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+              - verify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_search_wx_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddSearchWxContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                openid:
+                  title: Openid
+                  type: string
+                  default: ''
+                wx_ticket:
+                  title: Wx Ticket
+                  type: string
+                  default: ''
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_id
+              - openid
+              - wx_ticket
+              - verify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_search_wx_work_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddSearchWxWorkContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+                ticket:
+                  title: Ticket
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+              - verify
+              - ticket
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/add_wx_card_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddSearchWxContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                openid:
+                  title: Openid
+                  type: string
+                  default: ''
+                wx_ticket:
+                  title: Wx Ticket
+                  type: string
+                  default: ''
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - user_id
+              - openid
+              - wx_ticket
+              - verify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/agree_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AgreeContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+                limit:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+                userId:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_corpinfo:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetCorpInfoModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                corp_list:
+                  title: Corp List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - corp_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/batch_get_userinfo:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetUserInfoModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/check_card_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CheckCardContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: '0'
+                from_user_id:
+                  title: From User Id
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+              - room_id
+              - from_user_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/delete_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DeleteContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: '0'
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - user_id
+              - corp_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/get_contact_by_qrcode:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetContactByQrcodeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                qrcode:
+                  title: Qrcode
+                  type: string
+                  default: ''
+                type:
+                  title: Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - qrcode
+              - type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/op_black_list:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                user_list:
+                  type: array
+                  items:
+                    type: string
+                op_type:
+                  type: integer
+                  description: 1 => 加入黑名单， 2 => 移出黑名单
+              required:
+              - guid
+              - user_list
+              - op_type
+              x-apifox-orders:
+              - guid
+              - user_list
+              - op_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/search_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SearchContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                keyword:
+                  title: Keyword
+                  type: string
+                  default: ''
+                type:
+                  title: Type
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - keyword
+              - type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/sync_apply_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncApplyContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                seq:
+                  title: Seq
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+                corp_id:
+                  type: string
+                  x-from-call-sites: true
+                user_id:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - seq
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/sync_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                seq:
+                  title: Seq
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+              x-apifox-orders:
+              - guid
+              - seq
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /contact/update_contact:
+    post:
+      summary: ''
+      x-module: 联系人
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                  default: ''
+                desc:
+                  title: Desc
+                  type: string
+                  default: ''
+                remark:
+                  title: Remark
+                  type: string
+                  default: ''
+                remark_url:
+                  title: Remark Url
+                  type: string
+                  default: ''
+                company_remark:
+                  title: Company Remark
+                  type: string
+                  default: ''
+                phone_list:
+                  title: Phone List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                label_info_list:
+                  title: Label Info List
+                  type: array
+                  items:
+                    type: object
+                    x-apifox-orders: []
+                  default: []
+                label_ids:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - user_id
+              - desc
+              - remark
+              - remark_url
+              - company_remark
+              - phone_list
+              - label_info_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

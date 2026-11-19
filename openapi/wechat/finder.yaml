@@ -1,0 +1,487 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · finder 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /finder/byp_send:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderBypSendModel
+              required:
+              - finder_username
+              - msg_session_id
+              - content
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                finder_username:
+                  title: Finder Username
+                  type: string
+                msg_session_id:
+                  title: Msg Session Id
+                  type: string
+                content:
+                  title: Content
+                  type: string
+              x-apifox-orders:
+              - guid
+              - finder_username
+              - msg_session_id
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/byp_sync:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/finder_detail:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                last_buffer:
+                  title: Last Buffer
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+              - object_nonce_id
+              - last_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/finder_search:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderSearchModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                query:
+                  title: Query
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 0
+                last_buffer:
+                  title: Last Buffer
+                  type: string
+                  format: binary
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - query
+              - scene
+              - last_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/finder_user_page:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderUserPageModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                last_buffer:
+                  title: Last Buffer
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - username
+              - last_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_comment_list:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetCommentList
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                root_comment_id:
+                  title: Root Comment Id
+                  type: string
+                  default: ''
+                ref_comment_id:
+                  title: Ref Comment Id
+                  type: string
+                  default: ''
+                last_buffer:
+                  title: Last Buffer
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+              - object_nonce_id
+              - root_comment_id
+              - ref_comment_id
+              - last_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_contact_list:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetContactListModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                msg_contacts:
+                  title: Msg Contacts
+                  type: array
+                  items:
+                    title: FinderContactMsgModel
+                    required:
+                    - msg_username
+                    - session_id
+                    type: object
+                    properties:
+                      msg_username:
+                        title: Msg Username
+                        type: string
+                      session_id:
+                        title: Session Id
+                        type: string
+                      source_type:
+                        title: Source Type
+                        type: integer
+                        default: 0
+                    x-apifox-orders:
+                    - msg_username
+                    - session_id
+                    - source_type
+              x-apifox-orders:
+              - guid
+              - msg_contacts
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_detail_by_share_url:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetDetailByShareUrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                share_url:
+                  title: Share Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - share_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_fans_list:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetFansListModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                last_fans_id:
+                  title: Last Fans Id
+                  type: integer
+                  default: 0
+                last_buff:
+                  title: Last Buff
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - last_fans_id
+              - last_buff
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_feed_h5_url:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetFeedH5UrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_msg_session_id:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetMsgSessionIdModel
+              required:
+              - finder_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                finder_username:
+                  title: Finder Username
+                  type: string
+              x-apifox-orders:
+              - guid
+              - finder_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/get_qrcode:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderQRCodeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              description: No business fields; the current Finder identity is resolved internally.
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/new_user_prepare:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderNewUserPrepareModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              description: No business fields; ``guid`` is supplied by the common client model.
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/user_page_header:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderUserPageHeaderModel
+              required:
+              - finder_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                finder_username:
+                  title: Finder Username
+                  type: string
+              x-apifox-orders:
+              - guid
+              - finder_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder/web_search:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderWebSearchModel
+              required:
+              - keyword
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                keyword:
+                  title: Keyword
+                  type: string
+                business_type:
+                  title: Business Type
+                  type: integer
+                  default: 14
+                request_id:
+                  title: Request Id
+                  type: string
+                  default: ''
+                offset:
+                  title: Offset
+                  type: integer
+                  default: 0
+                sort_type:
+                  title: Sort Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - keyword
+              - business_type
+              - request_id
+              - offset
+              - sort_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

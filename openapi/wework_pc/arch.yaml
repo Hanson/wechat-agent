@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · arch 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /arch/get_arch_node_data:
+    post:
+      summary: ''
+      x-module: 企业架构
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetArchNodeDataModel
+              required:
+              - guid
+              - node_list
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                node_list:
+                  title: Node List
+                  type: array
+                  items:
+                    type: object
+                    x-apifox-orders: []
+                    properties: {}
+                  default: []
+                  description: 同步公司架构的返回值
+              x-apifox-orders:
+              - guid
+              - node_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /arch/modify_colleague_info:
+    post:
+      summary: ''
+      x-module: 企业架构
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyColleagueInfoModel
+              required:
+              - guid
+              - user_id
+              - remark
+              - desc
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_id:
+                  title: User Id
+                  type: string
+                remark:
+                  title: Remark
+                  type: string
+                desc:
+                  title: Desc
+                  type: string
+              x-apifox-orders:
+              - guid
+              - user_id
+              - remark
+              - desc
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /arch/sync_arch:
+    post:
+      summary: ''
+      x-module: 企业架构
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncArchModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                cli_version:
+                  title: Cli Version
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 100
+              x-apifox-orders:
+              - guid
+              - cli_version
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /arch/sync_colleague_info:
+    post:
+      summary: ''
+      x-module: 企业架构
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncColleagueInfoModel
+              required:
+              - guid
+              - seq
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                seq:
+                  title: Seq
+                  type: string
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+              x-apifox-orders:
+              - guid
+              - seq
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

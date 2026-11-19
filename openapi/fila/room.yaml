@@ -1,0 +1,365 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · room 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /room/accept_invite_url:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/add_room_contact:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/apply_room_templates_to_rooms:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/batch_get_member_detail:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/batch_get_room_detail:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/change_room_master:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/confirm_add_member:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_empty_outer_room:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_outer_room:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_room_welcome:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/dismiss_room:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_antispam_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_black_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_qrcode:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_templates:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_welcome_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/invite_room_member:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/invite_room_member_proto:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_in_room_nickname:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_invite_status:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_name_guard_status:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_auto_reply:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_name:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_notice:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_remark:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/opr_room_black_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/opr_room_white_list:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/quit_room:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/remove_room_member:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/remove_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/room_add_admin:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/room_remove_admin:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/save_to_contact:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_antispam_rule:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_room_add_contact_forbidden:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_room_welcome:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/sync_room_info:
+    post:
+      summary: ''
+      x-module: 群组
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

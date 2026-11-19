@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · open 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /open/chatid_to_roomid:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/check_oauth:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_appinfo:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_attachment_item:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_banner_list:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_personal_banner_info:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/get_url_action_code:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/openid_to_vid:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/roomid_to_chatid:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/vid_to_external_userid:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /open/vid_to_openid:
+    post:
+      summary: ''
+      x-module: 开放平台
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

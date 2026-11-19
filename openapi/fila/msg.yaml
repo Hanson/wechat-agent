@@ -1,0 +1,266 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · msg 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /msg/apply_voice_to_text:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/check_can_send_group_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/confirm_group_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/confirm_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/get_group_msg_detail:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_group_msg_confirm_list:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_group_msg_target_list:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/query_voice_to_text:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/report_unread:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/revoke_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_big_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_feed_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_feed_video_h5:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_file:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_forward_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_gif_url:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_group_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_image:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_link:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_location:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_message_scene:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_personal_card:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_quote_msg:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_room_at:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_text:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_video:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_voice:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_weapp:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/sync_group_msg_send_status:
+    post:
+      summary: ''
+      x-module: 消息
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

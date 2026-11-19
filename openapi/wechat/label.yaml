@@ -1,0 +1,200 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · label 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /label/add_contact_label:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddContactLabelModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                label_name:
+                  title: Label Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - label_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/del_contact_label:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DelContactLabelModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                label_id:
+                  title: Label Id
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - label_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/get_contact_label_list:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetContactLabelListModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/get_contacts:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: LabelGetContactsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                label_id_list:
+                  title: Label Id List
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+              x-apifox-orders:
+              - guid
+              - label_id_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/get_label_usage_amount:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetLabelUsageAmountModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                label_id_list:
+                  title: Label Id List
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+              x-apifox-orders:
+              - guid
+              - label_id_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/modify_contact_label_list:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyContactLabelListModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                label_id_list:
+                  title: Label Id List
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+              x-apifox-orders:
+              - guid
+              - username_list
+              - label_id_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/update_contact_label:
+    post:
+      summary: ''
+      x-module: Label
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UpdateContactLabelModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                label_id:
+                  title: Label Id
+                  type: integer
+                  default: 0
+                label_name:
+                  title: Label Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - label_id
+              - label_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

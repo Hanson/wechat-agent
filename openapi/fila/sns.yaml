@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · sns 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /sns/confirm_group_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/delete_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/delete_sns_comment:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/get_sns_detail:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/get_sns_task_record:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/get_sns_task_send_status:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/like_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/post_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/set_sns_cover:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_comment:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sync_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

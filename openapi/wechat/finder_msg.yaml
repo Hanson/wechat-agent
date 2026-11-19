@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · finder_msg 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /finder_msg/send_image:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderMsgImageModel
+              required:
+              - to_username
+              - session_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                session_id:
+                  title: Session Id
+                  type: string
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                crypt_ver:
+                  title: Crypt Ver
+                  type: integer
+                  default: 0
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                hd_size:
+                  title: Hd Size
+                  type: integer
+                  default: 0
+                mid_size:
+                  title: Mid Size
+                  type: integer
+                  default: 0
+                thumb_size:
+                  title: Thumb Size
+                  type: integer
+                  default: 0
+                thumb_height:
+                  title: Thumb Height
+                  type: integer
+                  default: 0
+                thumb_width:
+                  title: Thumb Width
+                  type: integer
+                  default: 0
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                mid_height:
+                  title: Mid Height
+                  type: integer
+                  default: 0
+                mid_width:
+                  title: Mid Width
+                  type: integer
+                  default: 0
+                hd_height:
+                  title: Hd Height
+                  type: integer
+                  default: 0
+                hd_width:
+                  title: Hd Width
+                  type: integer
+                  default: 0
+                hevc_hd_size:
+                  title: Hevc Hd Size
+                  type: integer
+                  default: 0
+                hevc_mid_size:
+                  title: Hevc Mid Size
+                  type: integer
+                  default: 0
+                hevc_thumb_size:
+                  title: Hevc Thumb Size
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - to_username
+              - session_id
+              - aes_key
+              - crypt_ver
+              - url
+              - hd_size
+              - mid_size
+              - thumb_size
+              - thumb_height
+              - thumb_width
+              - md5
+              - mid_height
+              - mid_width
+              - hd_height
+              - hd_width
+              - hevc_hd_size
+              - hevc_mid_size
+              - hevc_thumb_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_msg/send_text:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderMsgTextModel
+              required:
+              - to_username
+              - session_id
+              - content
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                session_id:
+                  title: Session Id
+                  type: string
+                content:
+                  title: Content
+                  type: string
+              x-apifox-orders:
+              - guid
+              - to_username
+              - session_id
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_msg/send_video:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderMsgVideoModel
+              required:
+              - to_username
+              - session_id
+              - aes_key
+              - url
+              - type
+              - length
+              - playtime
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                session_id:
+                  title: Session Id
+                  type: string
+                aes_key:
+                  title: Aes Key
+                  type: string
+                url:
+                  title: Url
+                  type: string
+                type:
+                  title: Type
+                  type: integer
+                length:
+                  title: Length
+                  type: integer
+                playtime:
+                  title: Playtime
+                  type: integer
+                thumb_aes_key:
+                  title: Thumb Aes Key
+                  type: string
+                  default: ''
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                  default: ''
+                thumb_size:
+                  title: Thumb Size
+                  type: integer
+                  default: 0
+                thumb_width:
+                  title: Thumb Width
+                  type: integer
+                  default: 0
+                thumb_height:
+                  title: Thumb Height
+                  type: integer
+                  default: 0
+                md5:
+                  title: Md5
+                  type: string
+                  default: ''
+                file_param:
+                  title: File Param
+                  type: string
+                  default: ''
+                new_md5:
+                  title: New Md5
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - session_id
+              - aes_key
+              - url
+              - type
+              - length
+              - playtime
+              - thumb_aes_key
+              - thumb_url
+              - thumb_size
+              - thumb_width
+              - thumb_height
+              - md5
+              - file_param
+              - new_md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

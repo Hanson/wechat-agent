@@ -1,0 +1,1282 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · room 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /room/accept_invite_url:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AcceptInviteUrlModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                invite_url:
+                  title: Invite Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - invite_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/add_room_contact:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddRoomContactModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_id:
+                  title: User Id
+                  type: string
+                  default: ''
+                corp_id:
+                  title: Corp Id
+                  type: string
+                  default: ''
+                verify:
+                  title: Verify
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_id
+              - corp_id
+              - verify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/apply_room_templates_to_rooms:
+    post:
+      summary: ''
+      x-module: 群聊/群模板
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ApplyRoomTemplatesToRoomsModel
+              required:
+              - guid
+              - template_id
+              - template_type
+              - room_list
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                template_id:
+                  title: Template Id
+                  type: string
+                template_type:
+                  title: Template Type
+                  type: integer
+                room_list:
+                  title: Room List
+                  type: array
+                  items:
+                    type: string
+              x-apifox-orders:
+              - guid
+              - template_id
+              - template_type
+              - room_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/batch_get_member_detail:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetRoomMemberDetailModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                roomId:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/batch_get_room_detail:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetRoomDetailModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_list:
+                  title: Room List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/change_room_master:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ChangeRoomMasterModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_id:
+                  title: User Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/confirm_add_member:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RoomConfirmAddMemberModel
+              required:
+              - guid
+              - room_id
+              - new_member_list
+              - inviter_user_id
+              - ticket_id
+              - ticket
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                new_member_list:
+                  title: New Member List
+                  type: array
+                  items:
+                    type: string
+                inviter_user_id:
+                  title: Inviter User Id
+                  type: string
+                ticket_id:
+                  title: Ticket Id
+                  type: string
+                ticket:
+                  title: Ticket
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_id
+              - new_member_list
+              - inviter_user_id
+              - ticket_id
+              - ticket
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_empty_outer_room:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateEmptyOuterRoomModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_inner_room:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateInnerRoomModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_outer_room:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateOuterRoomModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_welcome:
+    post:
+      summary: ''
+      x-module: 群聊/入群欢迎语
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateRoomWelcomeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/dismiss_room:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DismissRoomModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_antispam_list:
+    post:
+      summary: ''
+      x-module: 群聊/防骚扰规则
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetAntiSpamListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_black_list:
+    post:
+      summary: ''
+      x-module: 群聊/客户群黑名单
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetBlackListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                page_buff:
+                  title: Page Buff
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 2000
+              x-apifox-orders:
+              - guid
+              - page_buff
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_list:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                start_index:
+                  title: Start Index
+                  type: integer
+                  default: 0
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+              x-apifox-orders:
+              - guid
+              - start_index
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_qrcode:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomQRCodeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                get_type:
+                  title: Get Type
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_id
+              - get_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_templates:
+    post:
+      summary: ''
+      x-module: 群聊/群模板
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomTemplatesModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+                lastid:
+                  title: Lastid
+                  type: string
+                  default: ''
+                get_type:
+                  title: Get Type
+                  type: integer
+                  default: 0
+                template_type:
+                  title: Template Type
+                  type: integer
+                  default: 10
+              x-apifox-orders:
+              - guid
+              - limit
+              - lastid
+              - get_type
+              - template_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群聊/群置顶消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomTopMsgModel
+              required:
+              - guid
+              - room_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_welcome_list:
+    post:
+      summary: ''
+      x-module: 群聊/入群欢迎语
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomWelcomeListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                offset:
+                  title: Offset
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 10
+                welcome_type:
+                  title: Welcome Type
+                  type: integer
+                  default: 10
+              x-apifox-orders:
+              - guid
+              - offset
+              - limit
+              - welcome_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/invite_room_member:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: InviteRoomMemberModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_in_room_nickname:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyInRoomNicknameModel
+              required:
+              - guid
+              - room_id
+              - nickname
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                nickname:
+                  title: Nickname
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_id
+              - nickname
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_invite_status:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRoomInviteStatusModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_id
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_name_guard_status:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRoomNameGuardModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_id
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_admin_flag:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                room_id:
+                  type: string
+                forbid_add_contact:
+                  type: boolean
+                forbid_mod_name:
+                  type: boolean
+              required:
+              - guid
+              - room_id
+              - forbid_add_contact
+              - forbid_mod_name
+              x-apifox-orders:
+              - guid
+              - room_id
+              - forbid_add_contact
+              - forbid_mod_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_auto_reply:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                room_id:
+                  type: string
+                auto_reply:
+                  type: boolean
+              required:
+              - guid
+              - room_id
+              - auto_reply
+              x-apifox-orders:
+              - guid
+              - room_id
+              - auto_reply
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_name:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRoomNameModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                room_name:
+                  title: Room Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - room_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_notice:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRoomNoticeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                notice:
+                  title: Notice
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - notice
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_room_remark:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyRoomRemarkModel
+              required:
+              - guid
+              - room_id
+              - remark
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                remark:
+                  title: Remark
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_id
+              - remark
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/opr_room_black_list:
+    post:
+      summary: ''
+      x-module: 群聊/客户群黑名单
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OprRoomBlackListModel
+              required:
+              - guid
+              - user_list
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                status:
+                  title: Status
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - user_list
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/opr_room_white_list:
+    post:
+      summary: ''
+      x-module: 群聊/客户群黑名单
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OprRoomWhiteListModel
+              required:
+              - guid
+              - user_list
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                status:
+                  title: Status
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - user_list
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/quit_room:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: QuitRoomModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/remove_room_member:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RemoveRoomMemberModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/remove_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群聊/群置顶消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RemoveRoomTopMsgModel
+              required:
+              - guid
+              - room_id
+              - top_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                top_id:
+                  title: Top Id
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_id
+              - top_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/room_add_admin:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RoomAddAdminModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/room_remove_admin:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RoomRemoveAdminModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_id
+              - user_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_antispam_rule:
+    post:
+      summary: ''
+      x-module: 群聊/防骚扰规则
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetAntiSpamRuleModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                rule_list:
+                  title: Rule List
+                  type: array
+                  items:
+                    anyOf:
+                    - type: string
+                    - type: integer
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_id
+              - rule_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_room_top_msg:
+    post:
+      summary: ''
+      x-module: 群聊/群置顶消息
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetRoomTopMsgModel
+              required:
+              - guid
+              - room_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                message:
+                  title: Message
+                  type: object
+                  default: {}
+                  x-apifox-orders: []
+                appinfo:
+                  title: Appinfo
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - message
+              - appinfo
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_welcome:
+    post:
+      summary: ''
+      x-module: 群聊/入群欢迎语
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetRoomWelcomeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                  default: ''
+                msg_type:
+                  title: Msg Type
+                  type: integer
+                  default: 0
+                msg_index:
+                  title: Msg Index
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_id
+              - msg_type
+              - msg_index
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/sync_room_info:
+    post:
+      summary: ''
+      x-module: 群聊
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncRoomInfoModel
+              required:
+              - guid
+              - room_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                room_id:
+                  title: Room Id
+                  type: string
+                version:
+                  title: Version
+                  type: integer
+                  default: 0
+                memberCount:
+                  type: string
+                  x-from-call-sites: true
+                roomId:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - room_id
+              - version
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

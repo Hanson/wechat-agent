@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · other 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /other/voice_trans:
+    post:
+      summary: ''
+      x-module: Other
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VoiceTransModel
+              required:
+              - url
+              - format
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                format:
+                  title: Format
+                  type: integer
+                block_size:
+                  title: Block Size
+                  type: integer
+                  default: 4096
+              x-apifox-orders:
+              - guid
+              - url
+              - format
+              - block_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /other/voice_trans_block:
+    post:
+      summary: ''
+      x-module: Other
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VoiceTransBlockModel
+              required:
+              - voice_id
+              - block_data
+              - seq
+              - offset
+              - end_flag
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                voice_id:
+                  title: Voice Id
+                  type: string
+                block_data:
+                  title: Block Data
+                  type: string
+                seq:
+                  title: Seq
+                  type: integer
+                offset:
+                  title: Offset
+                  type: integer
+                end_flag:
+                  title: End Flag
+                  type: integer
+              x-apifox-orders:
+              - guid
+              - voice_id
+              - block_data
+              - seq
+              - offset
+              - end_flag
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

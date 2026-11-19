@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · login 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /login/check_login_qrcode:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CheckLoginQRCodeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/extdevice_upload_lan_info:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ExtDeviceUploadLanInfoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                addrs:
+                  title: Addrs
+                  type: array
+                  items:
+                    title: ExtDeviceLanEndpointModel
+                    type: object
+                    properties:
+                      host:
+                        title: Host
+                        type: string
+                        default: ''
+                      port:
+                        title: Port
+                        type: integer
+                        default: 0
+                    x-apifox-orders:
+                    - host
+                    - port
+              x-apifox-orders:
+              - guid
+              - addrs
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/get_login_qrcode:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetLoginQRCodeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/get_security_c1_info:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSecurityFaceInfoModel
+              required:
+              - payload
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                payload:
+                  title: Payload
+                  type: string
+              x-apifox-orders:
+              - guid
+              - payload
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/get_security_face_info:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSecurityFaceInfoModel
+              required:
+              - payload
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                payload:
+                  title: Payload
+                  type: string
+              x-apifox-orders:
+              - guid
+              - payload
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/get_security_info:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                  x-from-call-sites: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/push_login_url:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: PushLoginUrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /login/verify_login_url:
+    post:
+      summary: ''
+      x-module: Login
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: VerifyLoginUrlModel
+              required:
+              - ticket
+              - pin
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                ticket:
+                  title: Ticket
+                  type: string
+                pin:
+                  title: Pin
+                  type: string
+              x-apifox-orders:
+              - guid
+              - ticket
+              - pin
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

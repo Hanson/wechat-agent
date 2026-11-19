@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · session 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /session/create_session_tag:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/del_session_tag:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/fetch_room_list:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_room_top_msg:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_session_config:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_session_in_tag_list:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_session_list:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/get_session_tag_list:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/mod_session_in_tag:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/mod_session_tag:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/remove_room_top_msg_scene:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_fold:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_room_top_msg_scene:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_session_cmd:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_shield:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_top:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session/set_top_message:
+    post:
+      summary: ''
+      x-module: 会话
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

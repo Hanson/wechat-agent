@@ -1,0 +1,195 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · fav 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /fav/add_fav_item:
+    post:
+      summary: ''
+      x-module: Fav
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddFavItemModel
+              required:
+              - guid
+              - type
+              - object
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 在线实例 GUID。
+                type:
+                  title: Type
+                  maximum: 4294967295.0
+                  exclusiveMinimum: 0.0
+                  type: integer
+                  description: 收藏类型，必须与 object 根节点 favitem 的 type 一致。
+                object:
+                  title: Object
+                  minLength: 1
+                  type: string
+                  description: 原始收藏 XML，服务只校验并原样提交。
+                client_id:
+                  title: Client Id
+                  minLength: 1
+                  type: string
+                  description: 可选客户端请求标识；省略时由服务生成。
+                sub_type:
+                  title: Sub Type
+                  maximum: 4294967295.0
+                  minimum: 0.0
+                  type: integer
+                  description: 可选收藏子类型。
+                  default: 0
+                transfer_ctx:
+                  title: Transfer Ctx
+                  type: string
+                  description: 可选媒体传输上下文。
+                  default: ''
+                cli_create_time:
+                  title: Cli Create Time
+                  maximum: 1.8446744073709552e+19
+                  minimum: 0.0
+                  type: integer
+                  description: 可选客户端创建时间，Unix 秒级时间戳。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - type
+              - object
+              - client_id
+              - sub_type
+              - transfer_ctx
+              - cli_create_time
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /fav/batch_get_fav_item:
+    post:
+      summary: ''
+      x-module: Fav
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: BatchGetFavItemModel
+              required:
+              - guid
+              - fav_id_list
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 在线实例 GUID。
+                fav_id_list:
+                  title: Fav Id List
+                  maxItems: 20
+                  minItems: 1
+                  uniqueItems: true
+                  type: array
+                  items:
+                    maximum: 4294967295.0
+                    exclusiveMinimum: 0.0
+                    type: integer
+                  description: 收藏 ID 列表，每次 1..20 个不重复的整数，范围 1..4294967295；可从收藏同步结果取得。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - fav_id_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /fav/fav_sync:
+    post:
+      summary: ''
+      x-module: Fav
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FavSyncModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 在线实例 GUID。
+                sync_scope:
+                  title: Sync Scope
+                  maximum: 4294967295.0
+                  exclusiveMinimum: 0.0
+                  type: integer
+                  description: 同步范围：1 为收藏索引，5 为索引及标签，8 为置顶信息；首次可省略，通知或续批时原样传入对应范围值，范围 1..4294967295。
+                  default: 1
+                key_buf:
+                  title: Key Buf
+                  type: string
+                  description: Base64 收藏同步游标；首次留空，后续传入上次成功保存的 next_key_buf。
+                  default: ''
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - sync_scope
+              - key_buf
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /fav/forward_fav_item:
+    post:
+      summary: ''
+      x-module: Fav
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ForwardFavItemModel
+              required:
+              - guid
+              - to_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 在线实例 GUID。
+                to_username:
+                  title: To Username
+                  minLength: 1
+                  type: string
+                  description: 接收人账号或群号。
+                fav_id:
+                  title: Fav Id
+                  maximum: 4294967295.0
+                  exclusiveMinimum: 0.0
+                  type: integer
+                  description: 收藏 ID；与 object 二选一，服务自动获取详情。
+                object:
+                  title: Object
+                  maxLength: 8388608
+                  minLength: 1
+                  type: string
+                  description: 完整收藏 XML；与 fav_id 二选一。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - to_username
+              - fav_id
+              - object
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,198 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · session_tag 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /session_tag/create_session_tag:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateSessionTagModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                name:
+                  title: Name
+                  type: string
+                  default: ''
+                global_ver:
+                  title: Global Ver
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - name
+              - global_ver
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session_tag/del_session_tag:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DelSessionTagModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                tag_id:
+                  title: Tag Id
+                  type: string
+                  default: ''
+                global_ver:
+                  title: Global Ver
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - tag_id
+              - global_ver
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session_tag/get_session_in_tag_list:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSessionInTagListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                synckey:
+                  title: Synckey
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - synckey
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session_tag/get_session_tag_list:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSessionTagListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                synckey:
+                  title: Synckey
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - synckey
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session_tag/mod_session_in_tag:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModSessionInTagModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                conversation_id:
+                  title: Conversation Id
+                  type: string
+                  default: ''
+                tag_list:
+                  title: Tag List
+                  type: array
+                  items: {}
+                  default: []
+                global_ver:
+                  title: Global Ver
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - conversation_id
+              - tag_list
+              - global_ver
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /session_tag/mod_session_tag:
+    post:
+      summary: ''
+      x-module: 聊天标签
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModSessionTagModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                tag_id:
+                  title: Tag Id
+                  type: string
+                  default: ''
+                name:
+                  title: Name
+                  type: string
+                  default: ''
+                global_ver:
+                  title: Global Ver
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - tag_id
+              - name
+              - global_ver
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

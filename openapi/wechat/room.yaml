@@ -1,0 +1,822 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · room 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /room/add_chatroom_member:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddChatRoomMemberModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_username
+              - username_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/add_chatroom_member_friend:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: AddChatRoomMemberFriendModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                verify_content:
+                  title: Verify Content
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+              - username
+              - verify_content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/create_chatroom:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateChatRoomModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - username_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/del_chatroom_member:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DelChatRoomMemberModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_username
+              - username_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatroom_detail:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatroom_member_detail:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomMemberDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                version:
+                  title: Version
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - version
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatroom_members:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomMembersModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+                query:
+                  title: Query
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+              - page_num
+              - page_size
+              - query
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatroom_qrcode:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                room_username:
+                  type: string
+              required:
+              - guid
+              - room_username
+              x-apifox-orders:
+              - guid
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatrooms:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomsModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_chatrooms_by_creator:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetRoomsByCreatorModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                page_num:
+                  title: Page Num
+                  type: integer
+                  default: 1
+                page_size:
+                  title: Page Size
+                  type: integer
+                  default: 50
+                creator:
+                  title: Creator
+                  type: string
+                  default: ''
+                member_type:
+                  title: Member Type
+                  type: array
+                  items:
+                    type: integer
+                  default:
+                  - 1
+                  - 2
+              x-apifox-orders:
+              - guid
+              - page_num
+              - page_size
+              - creator
+              - member_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/get_top_msg_list:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetChatRoomTopMsgListModel
+              required:
+              - room_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/invite_chatroom_member:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: InviteChatRoomMemberModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                username_list:
+                  title: Username List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - room_username
+              - username_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_contact_flag:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomContactFlagModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_display_name:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomDisplayNameModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                display_name:
+                  title: Display Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+              - display_name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_disturb_flag:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomFoldFlagModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_fold_flag:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomFoldFlagModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_name:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomNameModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                name:
+                  title: Name
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+              - name
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_show_name_flag:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomShowNameFlagModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - room_username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/modify_chatroom_top_flag:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ModifyChatRoomTopFlagModel
+              required:
+              - room_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                status:
+                  title: Status
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - room_username
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/quit_chatroom:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: QuitChatRoom
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/remove_top_msg:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RemoveChatRoomTopMsgModel
+              required:
+              - room_username
+              - msg_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                msg_id:
+                  title: Msg Id
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_username
+              - msg_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_chatroom_announcement:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetChatRoomAnnouncementModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                  default: ''
+                announcement:
+                  title: Announcement
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - room_username
+              - announcement
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/set_top_msg:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetChatRoomTopMsgModel
+              required:
+              - room_username
+              - summary
+              - msg_info
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                summary:
+                  title: Summary
+                  type: string
+                msg_info:
+                  title: ChatMsgModel
+                  required:
+                  - from_username
+                  - to_username
+                  - chatroom_sender
+                  - create_time
+                  - desc
+                  - msg_id
+                  - msg_type
+                  - chatroom
+                  - source
+                  - content
+                  type: object
+                  properties:
+                    from_username:
+                      title: From Username
+                      type: string
+                    to_username:
+                      title: To Username
+                      type: string
+                    chatroom_sender:
+                      title: Chatroom Sender
+                      type: string
+                    create_time:
+                      title: Create Time
+                      type: integer
+                    desc:
+                      title: Desc
+                      type: string
+                    msg_id:
+                      title: Msg Id
+                      type: string
+                    msg_type:
+                      title: Msg Type
+                      type: integer
+                    chatroom:
+                      title: Chatroom
+                      type: string
+                    source:
+                      title: Source
+                      type: string
+                    content:
+                      title: Content
+                      type: string
+                  x-apifox-orders:
+                  - from_username
+                  - to_username
+                  - chatroom_sender
+                  - create_time
+                  - desc
+                  - msg_id
+                  - msg_type
+                  - chatroom
+                  - source
+                  - content
+              x-apifox-orders:
+              - guid
+              - room_username
+              - summary
+              - msg_info
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /room/tranfer_chatroom_owner:
+    post:
+      summary: ''
+      x-module: Room
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: TransferChatRoomOwnerModel
+              required:
+              - room_username
+              - username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                room_username:
+                  title: Room Username
+                  type: string
+                username:
+                  title: Username
+                  type: string
+              x-apifox-orders:
+              - guid
+              - room_username
+              - username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

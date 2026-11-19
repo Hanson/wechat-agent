@@ -1,0 +1,437 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · app 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /app/create_wxa_short_link:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CreateWxaShortLinkModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                page_path:
+                  title: Page Path
+                  type: string
+                  default: ''
+                page_title:
+                  title: Page Title
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - appid
+              - page_path
+              - page_title
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/get_a8key:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: A8KeyModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                req_url:
+                  title: Req Url
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 1
+                client_version:
+                  title: Client Version
+                  type: integer
+                  default: 0
+                device_type:
+                  title: Device Type
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - req_url
+              - scene
+              - client_version
+              - device_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/js_login:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: JsLoginModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - appid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/js_operate_wxdata:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: JsOperateWxDataModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                data:
+                  title: Data
+                  type: string
+                  default: ''
+                grant_scope:
+                  title: Grant Scope
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - appid
+              - data
+              - grant_scope
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/js_operate_wxdata_vip:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: JsOperateWxDataVipModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                data:
+                  title: Data
+                  type: string
+                  default: ''
+                grant_scope:
+                  title: Grant Scope
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - appid
+              - data
+              - grant_scope
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/mp_get_a8key:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: A8KeyModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                req_url:
+                  title: Req Url
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 1
+                client_version:
+                  title: Client Version
+                  type: integer
+                  default: 0
+                device_type:
+                  title: Device Type
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - req_url
+              - scene
+              - client_version
+              - device_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/oauth_authorize:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OAuthAuthorizeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: string
+                  default: 7
+              x-apifox-orders:
+              - guid
+              - url
+              - username
+              - scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/oauth_authorize_confirm:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OAuthAuthorizeConfirmModel
+              required:
+              - scope
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                scope:
+                  title: Scope
+                  anyOf:
+                  - type: array
+                    items:
+                      type: string
+                  - type: string
+                avatar_id:
+                  title: Avatar Id
+                  type: integer
+                  default: 0
+                opt:
+                  title: Opt
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - url
+              - scope
+              - avatar_id
+              - opt
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/qrconnect_authorize:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OAuthAuthorizeModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: string
+                  default: 7
+              x-apifox-orders:
+              - guid
+              - url
+              - username
+              - scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/qrconnect_authorize_confirm:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OAuthAuthorizeConfirmModel
+              required:
+              - scope
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                scope:
+                  title: Scope
+                  anyOf:
+                  - type: array
+                    items:
+                      type: string
+                  - type: string
+                avatar_id:
+                  title: Avatar Id
+                  type: integer
+                  default: 0
+                opt:
+                  title: Opt
+                  type: integer
+                  default: 1
+              x-apifox-orders:
+              - guid
+              - url
+              - scope
+              - avatar_id
+              - opt
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/resolve_wxa_app_short_link:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ResolveWxaShortLinkModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                short_link:
+                  title: Short Link
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - short_link
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /app/resolve_wxa_short_link:
+    post:
+      summary: ''
+      x-module: App
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ResolveWxaShortLinkModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                short_link:
+                  title: Short Link
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - short_link
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

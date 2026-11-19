@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · private 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /private/backup_instance:
+    post:
+      summary: ''
+      x-module: 备份
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+              required:
+              - guid
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /private/restore_instance:
+    post:
+      summary: ''
+      x-module: 备份
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                backup_data:
+                  type: string
+              required:
+              - guid
+              - backup_data
+              x-apifox-orders:
+              - guid
+              - backup_data
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

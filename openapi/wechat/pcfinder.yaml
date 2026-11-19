@@ -1,0 +1,67 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · pcfinder 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /pcfinder/get_detail_by_object:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderDetailModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                last_buffer:
+                  title: Last Buffer
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - object_id
+              - object_nonce_id
+              - last_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /pcfinder/get_detail_by_share_url:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetDetailByShareUrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                share_url:
+                  title: Share Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - share_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

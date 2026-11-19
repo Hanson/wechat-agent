@@ -1,0 +1,374 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · finder_live 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /finder_live/get_live_msg:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderGetLiveMsgModel
+              required:
+              - live_id
+              - object_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                live_cookies:
+                  title: Live Cookies
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 2
+                offline:
+                  title: Offline
+                  type: boolean
+                  default: false
+                from_scene:
+                  title: From Scene
+                  type: integer
+                  default: 39
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - object_nonce_id
+              - live_cookies
+              - scene
+              - offline
+              - from_scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_live/join_live:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderJoinLiveModel
+              required:
+              - live_id
+              - object_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                session_buffer:
+                  title: Session Buffer
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 2
+                join_type:
+                  title: Join Type
+                  type: integer
+                  default: 0
+                from_scene:
+                  title: From Scene
+                  type: integer
+                  default: 39
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - object_nonce_id
+              - session_buffer
+              - scene
+              - join_type
+              - from_scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_live/like:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderLikeLiveModel
+              required:
+              - live_id
+              - object_id
+              - live_cookies
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                live_cookies:
+                  title: Live Cookies
+                  type: string
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                count:
+                  title: Count
+                  type: integer
+                  default: 1
+                accumulate_like_count:
+                  title: Accumulate Like Count
+                  type: integer
+                  default: 0
+                session_buffer:
+                  title: Session Buffer
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - live_cookies
+              - object_nonce_id
+              - count
+              - accumulate_like_count
+              - session_buffer
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_live/like_comment:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderLikeCommentModel
+              required:
+              - live_id
+              - object_id
+              - live_cookies
+              - msg_seq
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                live_cookies:
+                  title: Live Cookies
+                  type: string
+                msg_seq:
+                  title: Msg Seq
+                  exclusiveMinimum: 0.0
+                  type: integer
+                original_comment_msg_type:
+                  title: Original Comment Msg Type
+                  type: integer
+                  default: 0
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - live_cookies
+              - msg_seq
+              - original_comment_msg_type
+              - object_nonce_id
+              - scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_live/reply:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderReplyModel
+              required:
+              - live_id
+              - object_id
+              - live_cookies
+              - content
+              - to_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                live_cookies:
+                  title: Live Cookies
+                  type: string
+                content:
+                  title: Content
+                  type: string
+                to_username:
+                  title: To Username
+                  type: string
+                to_nickname:
+                  title: To Nickname
+                  type: string
+                  default: ''
+                to_head_url:
+                  title: To Head Url
+                  type: string
+                  default: ''
+                to_live_identity:
+                  title: To Live Identity
+                  type: integer
+                  default: 3
+                msg_seq:
+                  title: Msg Seq
+                  minimum: 0.0
+                  type: integer
+                  default: 0
+                reply_original_msg_type:
+                  title: Reply Original Msg Type
+                  type: integer
+                  default: 1
+                sdk_resolved_server_ip:
+                  title: Sdk Resolved Server Ip
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                scene:
+                  title: Scene
+                  type: integer
+                  default: 2
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - live_cookies
+              - content
+              - to_username
+              - to_nickname
+              - to_head_url
+              - to_live_identity
+              - msg_seq
+              - reply_original_msg_type
+              - sdk_resolved_server_ip
+              - object_nonce_id
+              - scene
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_live/send_comment:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderSendCommentModel
+              required:
+              - live_id
+              - object_id
+              - live_cookies
+              - content
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                live_id:
+                  title: Live Id
+                  type: string
+                object_id:
+                  title: Object Id
+                  type: string
+                live_cookies:
+                  title: Live Cookies
+                  type: string
+                content:
+                  title: Content
+                  type: string
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                nickname:
+                  title: Nickname
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - live_id
+              - object_id
+              - live_cookies
+              - content
+              - object_nonce_id
+              - nickname
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

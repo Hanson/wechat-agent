@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Fila 企微手机版 · label 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /label/contact_add_label:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/contact_add_label_scene:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/create_label:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/delete_label:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/get_corp_labels:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/get_personal_labels:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/modify_label:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/operate_contact_labels:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /label/sync_label_list:
+    post:
+      summary: ''
+      x-module: 客户标签
+      x-params-source: fila-swagger
+      x-fila-swagger-ref: true
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

@@ -1,0 +1,1843 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · msg 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /msg/check_voice_trans:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: CheckVoiceTransModel
+              required:
+              - voice_id
+              - msg_id
+              - length
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                voice_id:
+                  title: Voice Id
+                  type: string
+                msg_id:
+                  title: Msg Id
+                  type: string
+                length:
+                  title: Length
+                  type: integer
+              x-apifox-orders:
+              - guid
+              - voice_id
+              - msg_id
+              - length
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/get_voice_trans:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetVoiceTransModel
+              required:
+              - voice_id
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                voice_id:
+                  title: Voice Id
+                  type: string
+              x-apifox-orders:
+              - guid
+              - voice_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/new_trans_voice_id:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ClientModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/revoke_msg:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: RevokeMsgModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                msg_id:
+                  title: Msg Id
+                  type: string
+                  default: ''
+                client_msg_id:
+                  title: Client Msg Id
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - to_username
+              - msg_id
+              - client_msg_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_app_msg:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_emoji:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendEmojiModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - file_id
+              - aes_key
+              - file_size
+              - file_md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_emoji_md5:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendEmojiMd5Model
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - to_username
+              - file_md5
+              - file_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_emoji_url:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendEmojiUrlModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_file:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFileModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+                file_name:
+                  title: File Name
+                  type: string
+                  default: ''
+                file_crc:
+                  title: File Crc
+                  type: integer
+                  default: 0
+                file_key:
+                  title: File Key
+                  type: string
+                  default: ''
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - to_username
+              - file_id
+              - aes_key
+              - file_size
+              - file_md5
+              - file_name
+              - file_crc
+              - file_key
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_finder_video:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendFinderVideoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: ''
+                object_nonce_id:
+                  title: Object Nonce Id
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                nickname:
+                  title: Nickname
+                  type: string
+                  default: ''
+                avatar:
+                  title: Avatar
+                  type: string
+                  default: ''
+                desc:
+                  title: Desc
+                  type: string
+                  default: ''
+                thumb_url:
+                  title: Thumb Url
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                feed_type:
+                  title: Feed Type
+                  type: integer
+                  default: 4
+              x-apifox-orders:
+              - guid
+              - to_username
+              - object_id
+              - object_nonce_id
+              - username
+              - nickname
+              - avatar
+              - desc
+              - thumb_url
+              - url
+              - feed_type
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_image:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendImageModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                big_file_size:
+                  title: Big File Size
+                  type: integer
+                  default: 0
+                thumb_file_size:
+                  title: Thumb File Size
+                  type: integer
+                  default: 0
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+                thumb_width:
+                  title: Thumb Width
+                  type: integer
+                  default: 0
+                thumb_height:
+                  title: Thumb Height
+                  type: integer
+                  default: 0
+                file_crc:
+                  title: File Crc
+                  type: integer
+                  default: 0
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - to_username
+              - file_id
+              - aes_key
+              - file_size
+              - big_file_size
+              - thumb_file_size
+              - file_md5
+              - thumb_width
+              - thumb_height
+              - file_crc
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_link_card:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendLinkCardModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                desc:
+                  title: Desc
+                  type: string
+                  default: ''
+                url:
+                  title: Url
+                  type: string
+                  default: ''
+                image_url:
+                  title: Image Url
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - title
+              - desc
+              - url
+              - image_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_link_card_cdn:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                to_username:
+                  type: string
+                title:
+                  type: string
+                desc:
+                  type: string
+                url:
+                  type: string
+                thumb_file_id:
+                  type: string
+                thumb_aes_key:
+                  type: string
+                thumb_file_size:
+                  type: integer
+                thumb_file_md5:
+                  type: string
+              required:
+              - guid
+              - to_username
+              - title
+              - desc
+              - url
+              - thumb_file_id
+              - thumb_aes_key
+              - thumb_file_size
+              - thumb_file_md5
+              x-apifox-orders:
+              - guid
+              - to_username
+              - title
+              - desc
+              - url
+              - thumb_file_id
+              - thumb_aes_key
+              - thumb_file_size
+              - thumb_file_md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_live_photo:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendLivePhotoModel
+              required:
+              - guid
+              - to_username
+              - photo
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 实例 ID。
+                to_username:
+                  title: To Username
+                  minLength: 1
+                  type: string
+                  description: 接收方 username，支持好友或群聊。
+                photo:
+                  title: Photo
+                  allOf:
+                  - title: MergedLivePhoto
+                    required:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    - video
+                    - duration_ms
+                    type: object
+                    properties:
+                      file_id:
+                        title: File Id
+                        minLength: 1
+                        type: string
+                        description: 实况复合上传返回的 CDN 文件 ID。
+                      aes_key:
+                        title: Aes Key
+                        pattern: ^(?:[0-9a-fA-F]{32})?$
+                        type: string
+                        description: 上传返回的 32 位十六进制密钥；明确命中已有资源时允许空字符串。
+                      display:
+                        title: Display
+                        allOf:
+                        - title: LivePhotoDisplay
+                          required:
+                          - size
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 显示图明文大小，单位字节。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                        description: 显示图明文大小。
+                      thumbnail:
+                        title: Thumbnail
+                        allOf:
+                        - title: ImageThumbnail
+                          required:
+                          - size
+                          - width
+                          - height
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图明文大小，单位字节。
+                            width:
+                              title: Width
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图宽度，单位像素。
+                            height:
+                              title: Height
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图高度，单位像素。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - width
+                          - height
+                        description: 缩略图明文大小和尺寸。
+                      video:
+                        title: Video
+                        allOf:
+                        - title: LivePhotoVideo
+                          required:
+                          - size
+                          - md5
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 4294967295.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 普通视频明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 普通视频的 MD5，32 位十六进制字符串。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 普通视频明文大小和 MD5。
+                      duration_ms:
+                        title: Duration Ms
+                        maximum: 4294967295.0
+                        exclusiveMinimum: 0.0
+                        type: integer
+                        description: 实况时长，单位毫秒。
+                      still_image_time_ms:
+                        title: Still Image Time Ms
+                        maximum: 4294967295.0
+                        minimum: 0.0
+                        type: integer
+                        description: 静态帧位置，单位毫秒，默认 0。
+                        default: 0
+                      original:
+                        title: Original
+                        allOf:
+                        - title: ImageVariant
+                          required:
+                          - size
+                          - md5
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 图片明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 对应图片文件的 MD5，32 位十六进制字符串。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 原图明文大小和 MD5。
+                      hd_video:
+                        title: Hd Video
+                        allOf:
+                        - title: LivePhotoHDVideo
+                          required:
+                          - size
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 4294967295.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 高清视频明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              pattern: ^(?:[0-9a-fA-F]{32})?$
+                              type: string
+                              description: 高清视频摘要，可省略；服务不会自动生成此消息字段。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 高清视频；与 original 成对提供。
+                      hit_md5:
+                        title: Hit Md5
+                        type: boolean
+                        description: 是否命中已有资源，默认 false。
+                        default: false
+                      origin_source_md5:
+                        title: Origin Source Md5
+                        maxLength: 32
+                        minLength: 32
+                        pattern: ^[0-9a-fA-F]{32}$
+                        type: string
+                        description: 已知的来源图片摘要，可选透传。
+                      hevc_mid_size:
+                        title: Hevc Mid Size
+                        maximum: 4294967295.0
+                        minimum: 0.0
+                        type: integer
+                        description: 已知的 HEVC 显示图大小，可选透传。
+                      security_hash:
+                        title: Security Hash
+                        minLength: 1
+                        type: string
+                        description: 已知的安全摘要，可选透传。
+                    additionalProperties: false
+                    x-apifox-orders:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    - video
+                    - duration_ms
+                    - still_image_time_ms
+                    - original
+                    - hd_video
+                    - hit_md5
+                    - origin_source_md5
+                    - hevc_mid_size
+                    - security_hash
+                  description: 实况上传返回的 merged_live_photo 对象；支持普通实况和实况原图。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - to_username
+              - photo
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_location:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendLocationModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                latitude:
+                  title: Latitude
+                  type: number
+                  default: 0
+                longitude:
+                  title: Longitude
+                  type: number
+                  default: 0
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                address:
+                  title: Address
+                  type: string
+                  default: ''
+                scale:
+                  title: Scale
+                  type: integer
+                  default: 15
+              x-apifox-orders:
+              - guid
+              - to_username
+              - latitude
+              - longitude
+              - title
+              - address
+              - scale
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_merged_images:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendMergedImagesModel
+              required:
+              - guid
+              - to_username
+              - images
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 实例 ID。
+                to_username:
+                  title: To Username
+                  minLength: 1
+                  type: string
+                  description: 接收方 username，支持好友或群聊。
+                images:
+                  title: Images
+                  minItems: 3
+                  type: array
+                  items:
+                    title: MergedImage
+                    required:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    type: object
+                    properties:
+                      file_id:
+                        title: File Id
+                        minLength: 1
+                        type: string
+                        description: 图片上传返回的 CDN 文件 ID。
+                      aes_key:
+                        title: Aes Key
+                        maxLength: 32
+                        minLength: 32
+                        pattern: ^[0-9a-fA-F]{32}$
+                        type: string
+                        description: 图片上传返回的密钥，32 位十六进制字符串。
+                      display:
+                        title: Display
+                        allOf:
+                        - title: ImageDisplay
+                          required:
+                          - size
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 显示图明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 普通图发送时必填；原图发送时可省略或为 null。
+                              nullable: true
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 显示图大小必填；MD5 在普通图发送时必填，原图发送时可省略。
+                      thumbnail:
+                        title: Thumbnail
+                        allOf:
+                        - title: ImageThumbnail
+                          required:
+                          - size
+                          - width
+                          - height
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图明文大小，单位字节。
+                            width:
+                              title: Width
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图宽度，单位像素。
+                            height:
+                              title: Height
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图高度，单位像素。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - width
+                          - height
+                        description: 缩略图的大小和尺寸。
+                      original:
+                        title: Original
+                        allOf:
+                        - title: ImageVariant
+                          required:
+                          - size
+                          - md5
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 图片明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 对应图片文件的 MD5，32 位十六进制字符串。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 原图的大小和 MD5；提供时按原图发送。
+                    additionalProperties: false
+                    x-apifox-orders:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    - original
+                  description: 至少 3 张已上传图片；数组顺序就是发送顺序。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - to_username
+              - images
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_merged_live_photos:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendMergedLivePhotosModel
+              required:
+              - guid
+              - to_username
+              - photos
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  minLength: 1
+                  type: string
+                  description: 实例 ID。
+                to_username:
+                  title: To Username
+                  minLength: 1
+                  type: string
+                  description: 接收方 username，支持好友或群聊。
+                photos:
+                  title: Photos
+                  minItems: 3
+                  type: array
+                  items:
+                    title: MergedLivePhoto
+                    required:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    - video
+                    - duration_ms
+                    type: object
+                    properties:
+                      file_id:
+                        title: File Id
+                        minLength: 1
+                        type: string
+                        description: 实况复合上传返回的 CDN 文件 ID。
+                      aes_key:
+                        title: Aes Key
+                        pattern: ^(?:[0-9a-fA-F]{32})?$
+                        type: string
+                        description: 上传返回的 32 位十六进制密钥；明确命中已有资源时允许空字符串。
+                      display:
+                        title: Display
+                        allOf:
+                        - title: LivePhotoDisplay
+                          required:
+                          - size
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 显示图明文大小，单位字节。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                        description: 显示图明文大小。
+                      thumbnail:
+                        title: Thumbnail
+                        allOf:
+                        - title: ImageThumbnail
+                          required:
+                          - size
+                          - width
+                          - height
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图明文大小，单位字节。
+                            width:
+                              title: Width
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图宽度，单位像素。
+                            height:
+                              title: Height
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 缩略图高度，单位像素。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - width
+                          - height
+                        description: 缩略图明文大小和尺寸。
+                      video:
+                        title: Video
+                        allOf:
+                        - title: LivePhotoVideo
+                          required:
+                          - size
+                          - md5
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 4294967295.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 普通视频明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 普通视频的 MD5，32 位十六进制字符串。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 普通视频明文大小和 MD5。
+                      duration_ms:
+                        title: Duration Ms
+                        maximum: 4294967295.0
+                        exclusiveMinimum: 0.0
+                        type: integer
+                        description: 实况时长，单位毫秒。
+                      still_image_time_ms:
+                        title: Still Image Time Ms
+                        maximum: 4294967295.0
+                        minimum: 0.0
+                        type: integer
+                        description: 静态帧位置，单位毫秒，默认 0。
+                        default: 0
+                      original:
+                        title: Original
+                        allOf:
+                        - title: ImageVariant
+                          required:
+                          - size
+                          - md5
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 2147483647.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 图片明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              maxLength: 32
+                              minLength: 32
+                              pattern: ^[0-9a-fA-F]{32}$
+                              type: string
+                              description: 对应图片文件的 MD5，32 位十六进制字符串。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 原图明文大小和 MD5。
+                      hd_video:
+                        title: Hd Video
+                        allOf:
+                        - title: LivePhotoHDVideo
+                          required:
+                          - size
+                          type: object
+                          properties:
+                            size:
+                              title: Size
+                              maximum: 4294967295.0
+                              exclusiveMinimum: 0.0
+                              type: integer
+                              description: 高清视频明文大小，单位字节。
+                            md5:
+                              title: Md5
+                              pattern: ^(?:[0-9a-fA-F]{32})?$
+                              type: string
+                              description: 高清视频摘要，可省略；服务不会自动生成此消息字段。
+                          additionalProperties: false
+                          x-apifox-orders:
+                          - size
+                          - md5
+                        description: 高清视频；与 original 成对提供。
+                      hit_md5:
+                        title: Hit Md5
+                        type: boolean
+                        description: 是否命中已有资源，默认 false。
+                        default: false
+                      origin_source_md5:
+                        title: Origin Source Md5
+                        maxLength: 32
+                        minLength: 32
+                        pattern: ^[0-9a-fA-F]{32}$
+                        type: string
+                        description: 已知的来源图片摘要，可选透传。
+                      hevc_mid_size:
+                        title: Hevc Mid Size
+                        maximum: 4294967295.0
+                        minimum: 0.0
+                        type: integer
+                        description: 已知的 HEVC 显示图大小，可选透传。
+                      security_hash:
+                        title: Security Hash
+                        minLength: 1
+                        type: string
+                        description: 已知的安全摘要，可选透传。
+                    additionalProperties: false
+                    x-apifox-orders:
+                    - file_id
+                    - aes_key
+                    - display
+                    - thumbnail
+                    - video
+                    - duration_ms
+                    - still_image_time_ms
+                    - original
+                    - hd_video
+                    - hit_md5
+                    - origin_source_md5
+                    - hevc_mid_size
+                    - security_hash
+                  description: 至少 3 张已上传实况照片；数组顺序就是发送顺序。
+              additionalProperties: false
+              x-apifox-orders:
+              - guid
+              - to_username
+              - photos
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_mini_app:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendMiniAppModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                username:
+                  title: Username
+                  type: string
+                  default: ''
+                appid:
+                  title: Appid
+                  type: string
+                  default: ''
+                appname:
+                  title: Appname
+                  type: string
+                  default: ''
+                appicon:
+                  title: Appicon
+                  type: string
+                  default: ''
+                title:
+                  title: Title
+                  type: string
+                  default: ''
+                page_path:
+                  title: Page Path
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - username
+              - appid
+              - appname
+              - appicon
+              - title
+              - page_path
+              - file_id
+              - aes_key
+              - file_size
+              - file_md5
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_pat:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendPatModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                patted_username:
+                  title: Patted Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - patted_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_refer_msg:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendReferMsgModel
+              required:
+              - to_username
+              - content
+              - refer_msg
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                content:
+                  title: Content
+                  type: string
+                refer_msg:
+                  title: ReferMsgModel
+                  required:
+                  - msg_type
+                  - msg_id
+                  - from_username
+                  - from_nickname
+                  - source
+                  - content
+                  type: object
+                  properties:
+                    msg_type:
+                      title: Msg Type
+                      type: integer
+                    msg_id:
+                      title: Msg Id
+                      type: string
+                    from_username:
+                      title: From Username
+                      type: string
+                    from_nickname:
+                      title: From Nickname
+                      type: string
+                    source:
+                      title: Source
+                      type: string
+                    content:
+                      title: Content
+                      type: string
+                  x-apifox-orders:
+                  - msg_type
+                  - msg_id
+                  - from_username
+                  - from_nickname
+                  - source
+                  - content
+              x-apifox-orders:
+              - guid
+              - to_username
+              - content
+              - refer_msg
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_room_at:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendRoomAtModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+                at_list:
+                  title: At List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - to_username
+              - content
+              - at_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_share_card:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendShareCardModel
+              required:
+              - to_username
+              - share_username
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                share_username:
+                  title: Share Username
+                  type: string
+                share_nickname:
+                  title: Share Nickname
+                  type: string
+                  default: ''
+                share_head_img:
+                  title: Share Head Img
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - share_username
+              - share_nickname
+              - share_head_img
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_share_card_raw:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendShareCardModelRaw
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                xml:
+                  title: Xml
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - xml
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_text:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendTextModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+              - content
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/send_video:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SendVideoModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                aes_key:
+                  title: Aes Key
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+                thumb_file_size:
+                  title: Thumb File Size
+                  type: integer
+                  default: 0
+                thumb_file_md5:
+                  title: Thumb File Md5
+                  type: string
+                  default: ''
+                video_duration:
+                  title: Video Duration
+                  type: integer
+                  default: 15
+                file_crc:
+                  title: File Crc
+                  type: integer
+                  default: 0
+                mp4_identify:
+                  title: Mp4 Identify
+                  type: string
+                  default: ''
+                appinfo:
+                  type: string
+                  x-from-call-sites: true
+                at_list:
+                  type: string
+                  x-from-call-sites: true
+                content:
+                  type: string
+                  x-from-call-sites: true
+                contenttype:
+                  type: string
+                  x-from-call-sites: true
+                data:
+                  type: string
+                  x-from-call-sites: true
+                flag:
+                  type: string
+                  x-from-call-sites: true
+                id:
+                  type: string
+                  x-from-call-sites: true
+                msg_data:
+                  type: string
+                  x-from-call-sites: true
+                receiver:
+                  type: string
+                  x-from-call-sites: true
+                roomid:
+                  type: string
+                  x-from-call-sites: true
+                sender:
+                  type: string
+                  x-from-call-sites: true
+                sendtime:
+                  type: string
+                  x-from-call-sites: true
+                seq:
+                  type: string
+                  x-from-call-sites: true
+              x-apifox-orders:
+              - guid
+              - to_username
+              - file_id
+              - aes_key
+              - file_size
+              - file_md5
+              - thumb_file_size
+              - thumb_file_md5
+              - video_duration
+              - file_crc
+              - mp4_identify
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/set_session_read:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetSessionReadModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                to_username:
+                  title: To Username
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - to_username
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /msg/upload_voice_trans:
+    post:
+      summary: ''
+      x-module: Msg
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: UploadVoiceTransModel
+              required:
+              - voice_id
+              - msg_id
+              - length
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                voice_id:
+                  title: Voice Id
+                  type: string
+                msg_id:
+                  title: Msg Id
+                  type: string
+                length:
+                  title: Length
+                  type: integer
+              x-apifox-orders:
+              - guid
+              - voice_id
+              - msg_id
+              - length
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

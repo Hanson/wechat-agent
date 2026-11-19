@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: 个微协议 · finder_role 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /finder_role/delete_virtual:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderRoleDeleteVirtualModel
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_role/switch:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderRoleSwitchModel
+              required:
+              - target_alias_role
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                target_alias_role:
+                  title: Target Alias Role
+                  type: integer
+                object_id:
+                  title: Object Id
+                  type: string
+                  default: '0'
+                live_id:
+                  title: Live Id
+                  type: string
+                  default: '0'
+              x-apifox-orders:
+              - guid
+              - target_alias_role
+              - object_id
+              - live_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /finder_role/upsert_virtual:
+    post:
+      summary: ''
+      x-module: Finder
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: FinderRoleUpsertVirtualModel
+              required:
+              - nickname
+              - head_img_url
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                  default: ''
+                nickname:
+                  title: Nickname
+                  type: string
+                head_img_url:
+                  title: Head Img Url
+                  type: string
+              x-apifox-orders:
+              - guid
+              - nickname
+              - head_img_url
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档

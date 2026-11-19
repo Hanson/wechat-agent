@@ -1,0 +1,342 @@
+openapi: 3.1.0
+info:
+  title: 企微 PC 协议 · sns 域
+  description: 聚合聊天开放平台接口面定义（OpenAPI 3.1），由文档管线生成并与线上服务自动核对。
+paths:
+  /sns/confirm_send_sns_task:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guid:
+                  type: string
+                sid:
+                  type: string
+              required:
+              - guid
+              - sid
+              x-apifox-orders:
+              - guid
+              - sid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/delete_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DeleteSnsModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sid:
+                  title: Sid
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - sid
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/delete_sns_comment:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: DeleteSnsCommentModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sid:
+                  title: Sid
+                  type: string
+                  default: ''
+                comment_id:
+                  title: Comment Id
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - sid
+              - comment_id
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/get_sns_detail:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSnsDetailModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sid_list:
+                  title: Sid List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+              x-apifox-orders:
+              - guid
+              - sid_list
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/get_sns_record:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetSnsRecordListModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                seq:
+                  title: Seq
+                  type: string
+                  default: ''
+                limit:
+                  title: Limit
+                  type: integer
+                  default: 20
+              x-apifox-orders:
+              - guid
+              - seq
+              - limit
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/post_sns:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: PostSnsModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                content:
+                  title: Content
+                  type: string
+                  default: ''
+                user_list:
+                  title: User List
+                  type: array
+                  items:
+                    type: string
+                  default: []
+                link_info:
+                  title: Link Info
+                  type: object
+                  default: {}
+                  x-apifox-orders: []
+                media_list:
+                  title: Media List
+                  type: array
+                  items:
+                    type: object
+                    x-apifox-orders: []
+                  default: []
+                finder_info:
+                  title: Finder Info
+                  type: object
+                  default: {}
+                  x-apifox-orders: []
+                poi_info:
+                  title: Poi Info
+                  type: object
+                  default: {}
+                  x-apifox-orders: []
+              x-apifox-orders:
+              - guid
+              - content
+              - user_list
+              - link_info
+              - media_list
+              - finder_info
+              - poi_info
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/set_cover:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetSnsCoverModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                file_id:
+                  title: File Id
+                  type: string
+                  default: ''
+                file_md5:
+                  title: File Md5
+                  type: string
+                  default: ''
+                file_size:
+                  title: File Size
+                  type: integer
+                  default: 0
+              x-apifox-orders:
+              - guid
+              - file_id
+              - file_md5
+              - file_size
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/set_sign:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SetSnsSignModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sign:
+                  title: Sign
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - sign
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_comment:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsCommentModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sid:
+                  title: Sid
+                  type: string
+                  default: ''
+                ref_commentid:
+                  title: Ref Commentid
+                  type: string
+                  default: ''
+                comment:
+                  title: Comment
+                  type: string
+                  default: ''
+              x-apifox-orders:
+              - guid
+              - sid
+              - ref_commentid
+              - comment
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
+  /sns/sns_like:
+    post:
+      summary: ''
+      x-module: 朋友圈
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SnsLikeModel
+              required:
+              - guid
+              type: object
+              properties:
+                guid:
+                  title: Guid
+                  type: string
+                sid:
+                  title: Sid
+                  type: string
+                  default: ''
+                status:
+                  title: Status
+                  type: boolean
+                  default: true
+              x-apifox-orders:
+              - guid
+              - sid
+              - status
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
