@@ -47,7 +47,7 @@ curl -X POST https://chat-admin.juhebot.com/open/CreateInstance \
 
 ## OpenAPI 接口面（协议接口全量定义）
 
-`openapi/` 目录按协议按域拆分的 OpenAPI 3.1 文档，是 `GuidRequest` 透传接口的全量清单（共 551 个）：
+`openapi/` 目录按协议按域拆分的 OpenAPI 3.1 文档，是 `GuidRequest` 透传接口的全量清单（共 552 个）：
 
 | 协议 | 接口数 | 目录 |
 |---|---|---|

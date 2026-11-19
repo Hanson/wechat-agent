@@ -96,6 +96,31 @@ paths:
       responses:
         '200':
           description: 协议侧响应，结构见 apifox/协议文档
+  /cdn/get_wecdn_file:
+    post:
+      summary: ''
+      x-module: CDN
+      x-params-source: apifox-schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - guid
+                properties:
+                  guid:
+                    type: string
+                    description: 设备标识
+                x-apifox-orders:
+                - guid
+              - type: object
+                properties: {}
+                x-apifox-orders: []
+      responses:
+        '200':
+          description: 协议侧响应，结构见 apifox/协议文档
   /cdn/get_wwfile_auth_key:
     post:
       summary: ''
