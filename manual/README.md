@@ -16,3 +16,4 @@
 | [callback.md](callback.md) | 回调对接（配置/payload 结构/签名校验/重试熔断） |
 | [errors.md](errors.md) | 错误码判型（信封键/平台与协议侧/三零判型） |
 | [pitfalls.md](pitfalls.md) | 坑手册（file_type 矩阵/产物格式/键名大小写/二维码形态） |
+| [recipes.md](recipes.md) | 接口实现配方（参数怎么填：值来源/转换/常量/上传发送链路衔接） |

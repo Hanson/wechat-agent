@@ -42,6 +42,7 @@ curl -X POST https://chat-admin.juhebot.com/open/CreateInstance \
 | [callback.md](manual/callback.md) | 回调对接（配置 / payload 结构 / 签名校验 / 重试熔断） |
 | [errors.md](manual/errors.md) | 错误码判型（信封键 / 平台与协议侧 / 三零判型） |
 | [pitfalls.md](manual/pitfalls.md) | 坑手册（file_type 矩阵 / 产物格式 / 键名大小写 / 二维码形态） |
+| [recipes.md](manual/recipes.md) | 接口实现配方（参数怎么填：值来源 / 转换 / 常量 / 上传发送链路衔接） |
 | [manual/README.md](manual/README.md) | 手册索引与三协议接口总表 |
 
 ## OpenAPI 接口面（协议接口全量定义）
